@@ -21,10 +21,15 @@
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include:
  > * Why is it important or interesting to you?
+ >   * Fun game
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * [toolname](link) - Short description
+ >   * [C++](https://www.cplusplus.com/) - C++ will be our language of choice for this project
+ >   * [GoogleTest](https://github.com/google/googletest) - GoogleTest will be used to easily run unit tests on our code
+ >   * [GitHub](https://github.com/) - GitHub will be used to host our remote repository for this project
+ >   * [Valgrind](https://www.valgrind.org/) - Valgrind will be used to test our code for memory management issues
  > * What will be the input/output of your project? What are the features that the project provides?
- > 
+ >   * For IO we will be using the terminal
+ >   * It will be a fun game :)
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
  > 
  > You also need to set up an empty project board by choosing the  “Automated kanban with review” option on Github. You should also have a Backlog and In testing columns added.

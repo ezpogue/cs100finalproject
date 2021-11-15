@@ -15,8 +15,9 @@ class Move_Type:public Type{
 protected:
 	std::vector<Type> supereffective;
 	std::vector<Type> notveryeffective;
+	std::vector<Type> immune;
 public:
-	Move_Type(std::vector<Type> a, std::vector<Type> b, std::string n);
+	Move_Type(std::vector<Type> a, std::vector<Type> b, std::Vector<Type> c,  std::string n);
 	float effectiveness(Pokemon p);
 	
 };

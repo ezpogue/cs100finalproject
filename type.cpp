@@ -27,80 +27,107 @@ float Move_Type::effectiveness(Pokemon p)
 
 Pokemon_Type::Pokemon_Type(string n):Type(n){}
 
-Bug_Move::Bug_Move()
+Bug_Move::Bug_Move():Move_Type("Bug")
 {
-	name = "Bug";
 	supereffective = {Pokemon_Type("Poison"), Pokemon_Type("Grass"), Pokemon_Type("Psychic")};
-	notveryeffective = {Pokemon_Type("Fighting"), Pokemon_Type("Flying"), Pokemon_Type("Ghost"), Pokemon_Type("Fire")}
+	notveryeffective = {Pokemon_Type("Fighting"), Pokemon_Type("Flying"), Pokemon_Type("Ghost"), Pokemon_Type("Fire")};
 	immune = {};
 }
 
-class Dragon_Move:public Move_Type{
-public:
-	Dragon_Move();
-};
+Dragon_Move::Dragon_Move():Move_Type("Dragon")
+{
+	supereffective = {Pokemon_Type("Dragon")};
+	notveryeffective = {};
+	immune = {};
+}
 
-class Electric_Move:public Move_Type{
-public:
-	Electric_Move();
-};
+Electric_Move::Electric_Move():Move_Type("Electric")
+{
+	supereffective = {Pokemon_Type("Flying"), Pokemon_Type("Water")};
+	notveryeffective = {Pokemon_Type("Grass"), Pokemon_Type("Electric"), Pokemon_Type("Dragon")};
+	immune = {Pokemon_Type("Ground")};
+}
 
-class Fighting_Move:public Move_Type{
-public:
-	Fighting_Move();
-};
+Fighting_Move::Fighting_Move():Move_Type("Fighting")
+{
+	supereffective = {Pokemon_Type("Normal"), Pokemon_Type("Rock"), Pokemon_Type("Ice")};
+	notveryeffective = {Pokemon_Type("Flying"), Pokemon_Type("Poison"), Pokemon_Type("Bug"), Pokemon_Type("Psychic")};
+	immune = {Pokemon_Type("Ghost")};
+}
 
-class Fire_Move:public Move_Type{
-public:
-	Fire_Move();
-};
+Fire_Move::Fire_Move():Move_Type("Fire")
+{
+	supereffective = {Pokemon_Type("Bug"), Pokemon_Type("Grass"), Pokemon_Type("Ice")};
+	notveryeffective = {Pokemon_Type("Rock"), Pokemon_Type("Fire"), Pokemon_Type("Water"), Pokemon_Type("Dragon")};
+	immune = {};
+}
 
-class Flying_Move:public Move_Type{
-public:
-	Flying_Move();
-};
+Flying_Move::Flying_Move():Move_Type("Flying")
+{
+	supereffective = {Pokemon_Type("Fighting"), Pokemon_Type("Bug"), Pokemon_Type("Grass")};
+	notveryeffective = {Pokemon_Type("Rock"), Pokemon_Type("Electric")};
+	immune = {};
+}
 
-class Ghost_Move:public Move_Type{
-public:
-	Ghost_Move();
-};
+Ghost_Move::Ghost_Move():Move_Type("Ghost")
+{
+	supereffective = {Pokemon_Type("Ghost")};
+	notveryeffective = {};
+	immune = {Pokemon_Type("Normal"), Pokemon_Type("Psychic")};
+}
 
-class Grass_Move:public Move_Type{
-public:
-	Grass_Move();
-};
+Grass_Move::Grass_Move():Move_Type("Grass")
+{
+	supereffective = {Pokemon_Type("Ground"), Pokemon_Type("Rock"), Pokemon_Type("Water")};
+	notveryeffective = {Pokemon_Type("Flying"), Pokemon_Type("Poison"), Pokemon_Type("Bug"), Pokemon_Type("Fire"), Pokemon_Type("Grass"), Pokemon_Type("Dragon")};
+	immune = {};
+}
 
-class Ground_Move:public Move_Type{
-public:
-	Ground_Move();
-};
+Ground_Move::Ground_Move():Move_Type("Ground")
+{
+	supereffective = {Pokemon_Type("Poison"), Pokemon_Type("Rock"), Pokemon_Type("Fire"), Pokemon_Type("Ground")};
+	notveryeffective = {Pokemon_Type("Bug"), Pokemon_Type("Grass")};
+	immune = {Pokemon_Type("Flying")};
+}
 
-class Ice_Move:public Move_Type{
-public:
-	Ice_Move();
-};
+Ice_Move::Ice_Move():Move_Type("Ice")
+{
+	supereffective = {Pokemon_Type("Flying"), Pokemon_Type("Ground"), Pokemon_Type("Grass"), Pokemon_Type("Dragon")};
+	notveryeffective = {Pokemon_Type("Water"), Pokemon_Type("Ice")};
+	immune = {};
+}
 
-class Normal_Move:public Move_Type{
-public:
-	Normal_Move();
-};
+Normal_Move::Normal_Move():Move_Type("Normal")
+{
+	supereffective = {};
+	notveryeffective = {Pokemon_Type("Rock")};
+	immune = {Pokemon_Type("Ghost")};
+}
 
-class Poison_Move:public Move_Type{
-public:
-	Poison_Move();
-};
+Poison_Move::Poison_Move():Move_Type("Poison")
+{
+	supereffective = {Pokemon_Type("Bug"), Pokemon_Type("Grass")};
+	notveryeffective = {Pokemon_Type("Poison"), Pokemon_Type("Ground"), Pokemon_Type("Rock"), Pokemon_Type("Ghost")};
+	immune = {};
+}
 
-class Psychic_Move:public Move_Type{
-public:
-	Psychic_Move();
-};
+Psychic_Move::Psychic_Move():Move_Type("Psychic")
+{
+	supereffective = {Pokemon_Type("Fighting"), Pokemon_Type("Poison")};
+	notveryeffective = {Pokemon_Type("Psychic")};
+	immune = {};
+}
 
-class Rock_Move:public Move_Type{
-public:
-	Rock_Move();
-};
+Rock_Move::Rock_Move():Move_Type("Rock")
+{
+	supereffective = {Pokemon_Type("Flying"), Pokemon_Type("Bug"), Pokemon_Type("Fire"), Pokemon_Type("Ice")};
+	notveryeffective = {Pokemon_Type("Fighting"), Pokemon_Type("Ground")};
+	immune = {};
+}
 
-class Water_Move:public Move_Type{
-public:
-	Water_Move();
-};
+Water_Move::Water_Move():Move_Type("Water")
+{
+	supereffective = {Pokemon_Type("Ground"), Pokemon_Type("Rock"), Pokemon_Type("Fire")};
+	notveryeffective = {Pokemon_Type("Water"), Pokemon_Type("Grass"), Pokemon_Type("Dragon")};
+	immune = {};
+}

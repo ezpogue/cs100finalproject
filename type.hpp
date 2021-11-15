@@ -7,6 +7,8 @@
 class Type{
 protected:
 	std::string name;
+public
+	Type(std::string n);
 };
 
 class Move_Type:public Type{
@@ -14,10 +16,15 @@ protected:
 	std::vector<Type> supereffective;
 	std::vector<Type> notveryeffective;
 public:
-	float effectiveness(Pokemon){}
+	Move_Type(std::vector<Type> a, std::vector<Type> b, std::string n);
+	float effectiveness(Pokemon p);
+	
 };
 
-class Pokemon_Type : public Type{};
+class Pokemon_Type : public Type{
+public:
+	Pokemon_Type(std::string n);
+};
 
 class Bug_Move:public Move_Type{
 public:

@@ -47,4 +47,5 @@ class Psychic_Move:public Move_Type{};
 
 class Rock_Move:public Move_Type{};
 
+class Water_Move:public Move_Type{};
 #endif

@@ -19,33 +19,78 @@ public:
 
 class Pokemon_Type : public Type{};
 
-class Bug_Move:public Move_Type{};
+class Bug_Move:public Move_Type{
+public:
+	Bug_Move();
+};
 
-class Dragon_Move:public Move_Type{};
+class Dragon_Move:public Move_Type{
+public:
+	Dragon_Move();
+};
 
-class Electric_Move:public Move_Type{};
+class Electric_Move:public Move_Type{
+public:
+	Electric_Move();
+};
 
-class Fighting_Move:public Move_Type{};
+class Fighting_Move:public Move_Type{
+public:
+	Fighting_Move();
+};
 
-class Fire_Move:public Move_Type{};
+class Fire_Move:public Move_Type{
+public:
+	Fire_Move();
+};
 
-class Flying_Move:public Move_Type{};
+class Flying_Move:public Move_Type{
+public:
+	Flying_Move();
+};
 
-class Ghost_Move:public Move_Type{};
+class Ghost_Move:public Move_Type{
+public:
+	Ghost_Move();
+};
 
-class Grass_Move:public Move_Type{};
+class Grass_Move:public Move_Type{
+public:
+	Grass_Move();
+};
 
-class Ground_Move:public Move_Type{};
+class Ground_Move:public Move_Type{
+public:
+	Ground_Move();
+};
 
-class Ice_Move:public Move_Type{};
+class Ice_Move:public Move_Type{
+public:
+	Ice_Move();
+};
 
-class Normal_Move:public Move_Type{};
+class Normal_Move:public Move_Type{
+public:
+	Normal_Move();
+};
 
-class Poison_Move:public Move_Type{};
+class Poison_Move:public Move_Type{
+public:
+	Poison_Move();
+};
 
-class Psychic_Move:public Move_Type{};
+class Psychic_Move:public Move_Type{
+public:
+	Psychic_Move();
+};
 
-class Rock_Move:public Move_Type{};
+class Rock_Move:public Move_Type{
+public:
+	Rock_Move();
+};
 
-class Water_Move:public Move_Type{};
+class Water_Move:public Move_Type{
+public:
+	Water_Move();
+};
 #endif

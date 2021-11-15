@@ -9,6 +9,7 @@ protected:
 	std::string name;
 public
 	Type(std::string n);
+	std::string getName();
 };
 
 class Move_Type:public Type{

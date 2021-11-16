@@ -15,23 +15,13 @@ Features of the game will include core Pokemon features, such as battling monste
 ## Class Diagram
 Our class diagrams can be viewed [here.](https://lucid.app/lucidchart/bead12b5-0e52-4913-a2b0-adf8b4624c81/edit?viewport_loc=13%2C-36%2C2219%2C989%2C0_0&invitationId=inv_2795bc8a-8a70-4143-a02d-184a171e0b08)
  
- > ## Phase III
- > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
- > * Before the meeting you should perform a sprint plan like you did in Phase II.
- > * You should also update this README file by adding the following:
- >   * What design patterns did you use? For each design pattern you must explain in 4-5 sentences:
- >     * Why did you pick this pattern? And what feature did you implement with it?
- >     * How did the design pattern help you write better code?
- >   * An updated class diagram that reflects the design patterns you used. You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description).
- >   * Make sure your README file (and Project board) are up-to-date reflecting the current status of your project. Previous versions of the README file should still be visible through your commit history.
-> 
-> During the meeting with your TA you will discuss: 
- > * How effective your last sprint was (each member should talk about what they did)
- > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- > * What tasks you are planning for this next sprint.
+##Design Patterns
+###Composite Pattern
+We utilize the composite pattern in our Move class. Because each Pokemon has 4 moves it can use, we thought it would be useful to aggregate all 4 Moves into a composite called Move_Set. This allows us to use a singular interface to use a specific Move or a random Move out of the 4. This allows our code to be more user friendly and accessible due to the interface being the same for all use cases.
 
- 
+###Strategy Pattern
+We plan to utilize the strategy pattern in the trainer AI. In the Pokemon games, each trainer has a different playstyle, and may have a set strategy they are using. Using the strategy pattern, we can make it easier to add new trainers with unique strategies, or change the strategy of an existing trainer. This allows our code to be more extensible, in case we wanted to expand our game later.
+
  > ## Final deliverable
  > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
  > Before the demo, you should do the following:

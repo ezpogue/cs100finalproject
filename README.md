@@ -15,11 +15,11 @@ Features of the game will include core Pokemon features, such as battling monste
 ## Class Diagram
 Our class diagrams can be viewed [here.](https://lucid.app/lucidchart/bead12b5-0e52-4913-a2b0-adf8b4624c81/edit?viewport_loc=13%2C-36%2C2219%2C989%2C0_0&invitationId=inv_2795bc8a-8a70-4143-a02d-184a171e0b08)
  
-##Design Patterns
-###Composite Pattern
+## Design Patterns
+### Composite Pattern
 We utilize the composite pattern in our Move class. Because each Pokemon has 4 moves it can use, we thought it would be useful to aggregate all 4 Moves into a composite called Move_Set. This allows us to use a singular interface to use a specific Move or a random Move out of the 4. This allows our code to be more user friendly and accessible due to the interface being the same for all use cases.
 
-###Strategy Pattern
+### Strategy Pattern
 We plan to utilize the strategy pattern in the trainer AI. In the Pokemon games, each trainer has a different playstyle, and may have a set strategy they are using. Using the strategy pattern, we can make it easier to add new trainers with unique strategies, or change the strategy of an existing trainer. This allows our code to be more extensible, in case we wanted to expand our game later.
 
  > ## Final deliverable

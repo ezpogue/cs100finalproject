@@ -20,7 +20,7 @@ Our class diagrams can be viewed [here.](https://lucid.app/lucidchart/bead12b5-0
 We utilize the composite pattern in our Move class. Because each Pokemon has 4 moves it can use, we thought it would be useful to aggregate all 4 Moves into a composite called Move_Set. This allows us to use a singular interface to use a specific Move or a random Move out of the 4. This allows our code to be more user friendly and accessible due to the interface being the same for all use cases.
 
 ### Strategy Pattern
-We plan to utilize the strategy pattern in the trainer AI. In the Pokemon games, each trainer has a different playstyle, and may have a set strategy they are using. Using the strategy pattern, we can make it easier to add new trainers with unique strategies, or change the strategy of an existing trainer. This allows our code to be more extensible, in case we wanted to expand our game later.
+We utilize the strategy pattern in our Quote class. Each trainer says something unique at the beginning of a battle. Using the strategy pattern, we make it so that we can easily swap what entire groups of trainers say, as well as being able to add new quotes simply. This allows us to avoid hardcoding things such as quotes into our trainers, making our code more extensible.
 
  > ## Final deliverable
  > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 

@@ -44,8 +44,6 @@ public:
 class Attack_Move : public Poke_Move {
 protected:
 	int power;
-public:
-	void moveDamage();
 };
 
 class DragonDance : public Buff_Move {}

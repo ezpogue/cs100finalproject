@@ -13,6 +13,7 @@ class Battle
 	public:
 		Battle(Trainer* p, Trainer* e);
 		bool battleComplete();
+		bool speedCheck();
 		std::string getWinner();
 		void turn(unsigned int p, unsigned int e);
     };

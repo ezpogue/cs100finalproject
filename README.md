@@ -17,10 +17,10 @@ Our class diagrams can be viewed [here.](https://lucid.app/lucidchart/bead12b5-0
  
 ## Design Patterns
 ### Composite Pattern
-We utilize the composite pattern in our Move class. Because each Pokemon has 4 moves it can use, we thought it would be useful to aggregate all 4 Moves into a composite called Move_Set. This allows us to use a singular interface to use a specific Move or a random Move out of the 4. This allows our code to be more user friendly and accessible due to the interface being the same for all use cases.
+We utilize the composite pattern in our Move class. We have leaf classes for different types of moves, such as Attacks, which do damage to the enemy Pokemon, Buffs, which raise the stats of the player's Pokemon, and debuffs, which lower the stats of the enemy Pokemon. By creating a composite class, we can have moves that can, for example, do damage and buff, or debuff and buff, or buff multiple stats. This allows creative moves to be implemented in our game.
 
-### Strategy Pattern
-We utilize the strategy pattern in our Quote class. Each trainer says something unique at the beginning of a battle. Using the strategy pattern, we make it so that we can easily swap what entire groups of trainers say, as well as being able to add new quotes simply. This allows us to avoid hardcoding things such as quotes into our trainers, making our code more extensible.
+### Facade Pattern
+We utilize the [facade pattern](https://en.wikipedia.org/wiki/Facade_pattern) in our Battle class. The game mechanics are fairly complicated, and require calling many methods of different objects to perform things like single moves. The Battle class acts as the facade, and a single method in the Battle class can call all methods needed for an entire turn of a fight.
 
  > ## Final deliverable
  > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 

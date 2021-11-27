@@ -8,7 +8,14 @@ Pokemon(std::string name, Pokemon_Type type1, Pokemon_Type type2, Move* move1, M
 Move* Pokemon::useMove(int choice){return move[choice];}
 
 void Pokemon::catchMove(Move* a){
-	stats[0] -= a->getDamage(type);	
+	if (a->getATKDebuff() != 0)
+		stats[1] -= a->getATKDebuff();
+	if (a->getDEFDebuff() != 0)
+		stats[2] -= a->getDEFDebuff();
+	if (a->getSPDDebuff() != 0)
+		stats[3] -= a->getSPDDebuff();
+	if (a->getDamage() != 0)
+		stats[0] -= (a->getDamage(type))/stats[2];	
 }
 
 std::pair<Pokemon_Type,Pokemon_Type> Pokemon::getType(){return type;}

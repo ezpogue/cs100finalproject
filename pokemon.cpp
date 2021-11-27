@@ -1,16 +1,20 @@
 #include "pokemon.hpp"
+#include "move.hpp"
+#include <iostream>
+#include <utility>
 
-Pokemon::outDamage(int rawDamage) {
-	//TO-DO: adjust damage based off of type of pokemon and type of move
-	//also change it so function attacks other pokemon
-	health = health - rawDamage;	
+Move* Pokemon::useMove(int choice){return move[choice];}
+
+void Pokemon::catchMove(Move* a){
+	stats[0] -= a->getDamage(type);	
 }
 
-Pokemon::inDamage(int rawDamage) {
-	//TO-DO: adjust damage based off of type of pokemon and type of move
-	health = health - rawDamage;
-}
+std::pair<Pokemon_Type,Pokemon_Type> Pokemon::getType(){return type;}
 
-Pokemon::getType() {
-	return typePair;
-} 
+int Pokemon::getHP(){return stats[0];}
+
+int Pokemon::getATK(){return stats[1];}
+
+int Pokemon::getDEF(){return stats[2];}
+
+int Pokemon::getSPD(){return stats[3];}

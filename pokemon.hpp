@@ -14,9 +14,9 @@ protected:
 	int stats[4];// {HP,ATK,DEF,SPD}
 
 public:
-	void useMove();
+	Move* useMove();
 	void catchMove(Move*);
-	std:pair<Pokemon_Type,Pokemon_Type> getType();
+	std::pair<Pokemon_Type,Pokemon_Type> getType();
 	int getHP();
 	int getATK();
 	int getDEF();

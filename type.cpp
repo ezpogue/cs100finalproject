@@ -17,7 +17,7 @@ float Move_Type::effectiveness(Pokemon_Type type1, Pokemon_Type type2)
 	if (immune.find(type1.getName()) != immune.end()) return 0;
 	if (supereffective.find(type1.getName()) != supereffective.end()) effectiveness = effectiveness*2;
 	if (notveryeffective.find(type1.getName()) != notveryeffective.end()) effectiveness = effectiveness/2;
-	if (type2.getName() != ""){
+	if (type2.getName() != "" && type2.getName()!=type1.getName()){
 		if (immune.find(type2.getName()) != immune.end()) return 0;
 		if (supereffective.find(type2.getName()) != supereffective.end()) effectiveness = effectiveness*2;
 		if (notveryeffective.find(type2.getName()) != notveryeffective.end()) effectiveness = effectiveness/2;

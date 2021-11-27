@@ -3,20 +3,23 @@
 
 #include "move.hpp"
 #include "type.hpp"
-
-using namespace std;
+#include <utility>
 
 class Pokemon{
 
 protected:
-	string name;
-	pair<Type Pokemon_Type, Type Pokemon_Type2> typePair;
-	Moves* move;
-	int health;
-	string status; //must fix
+	std::string name;
+	std::pair<Pokemon_Type,Pokemon_Type> type;
+	Move* move[4];
+	int stats[4];// {HP,ATK,DEF,SPD}
 
 public:
-	void outDamage(int rawDamage);
-	void inDamage(int rawDamage);
-	Type getType();
+	void useMove();
+	void catchMove(Move*);
+	std:pair<Pokemon_Type,Pokemon_Type> getType();
+	int getHP();
+	int getATK();
+	int getDEF();
+	int getSPD();
 };
+#endif

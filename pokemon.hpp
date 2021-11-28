@@ -11,8 +11,8 @@ class Pokemon{
 protected:
 	string name;
 	pair<Type Pokemon_Type, Type Pokemon_Type2> typePair;
-	Moves* move;
-	int health;
+	Move move[3];
+	int stats[3];
 	string status; //must fix
 
 public:

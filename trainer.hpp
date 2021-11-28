@@ -1,26 +1,24 @@
+#ifndef __TRAINER_HPP__
+#define __TRAINER_HPP__
+
 #include <string>
-#ifndef __trainer_hpp__
-#define __trainer_hpp__
+#include "pokemon.hpp"
+#include "move.hpp"
 
 class Trainer
-    {
-        protected:
-        string name;
-        int items;
+{
+protected:
+        std::string name;
         Pokemon* active;
-        Pokemon team [4];
+        Pokemon team[3];
 
-        public:
-        switchPokemon();
-        
-    }
-    
-    Trainer:: switchPokemon(&Pokemon)
-    {
-         switchPokemon(&Pokemon a){
-             active=a
-             
-         
-}
+public:
+        void switchPokemon(int choice);
+       	Move* getMove(int choice);
+	void catchMove(Move*);
+	int getHealth();
+	int getAttack();
+	int getDefense();
+	int getSpeed();
+};
 #endif
-    }

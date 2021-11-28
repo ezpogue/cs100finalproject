@@ -7,25 +7,26 @@
 class Type{
 protected:
 	std::string name;
-public
+public:
 	Type(std::string n);
 	std::string getName();
-};
-
-class Move_Type:public Type{
-protected:
-	std::set<Type> supereffective;
-	std::set<Type> notveryeffective;
-	std::set<Type> immune;
-public:
-	Move_Type(std::set<Type> a, std::set<Type> b, std::set<Type> c,  std::string n);
-	float effectiveness(Pokemon p);
-	
 };
 
 class Pokemon_Type : public Type{
 public:
 	Pokemon_Type(std::string n);
+};
+
+class Move_Type:public Type{
+protected:
+	std::set<std::string> supereffective;
+	std::set<std::string> notveryeffective;
+	std::set<std::string> immune;
+public:
+	Move_Type(std::string n);
+	Move_Type(std::set<std::string> a, std::set<std::string> b, std::set<std::string> c,  std::string n);
+	float effectiveness(Pokemon_Type type1, Pokemon_Type type2);
+	
 };
 
 class Bug_Move:public Move_Type{

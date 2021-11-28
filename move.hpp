@@ -55,7 +55,7 @@ class Agility : public Buff_Move {}
 class TailWhip : public Buff_Move {}
 
 class NastyPlot : public Buff_Move {}
-
+/*
 class Flamethrower : public Attack_Move {}
 
 class Hurricane : public Attack_Move {}
@@ -85,6 +85,6 @@ class FlameCharge : public Attack_Move {}
 class Ember : public Attack_Move {}
 
 class ExtremeSpeed : public Attack_Move {}
-
+*/
 
 

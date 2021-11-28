@@ -47,7 +47,7 @@ class NastyPlot(Pokemon pokemon) {
 
 	changeStat(pokemon, 1, 2);
 }
-
+/*
 class Flamethrower(Pokemon pokemon) {
 
 	power = 90;
@@ -155,3 +155,4 @@ class ExtremeSpeed (Pokemon pokemon) {
 	acc = 1;
 	priority = 1;
 }
+*/

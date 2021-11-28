@@ -13,6 +13,7 @@ protected:
         Pokemon team[3];
 
 public:
+	Trainer(std::string n, Pokemon a, Pokemon b, Pokemon c);
         void switchPokemon(int choice);
        	Move* getMove(int choice);
 	void catchMove(Move*);

@@ -16,7 +16,7 @@ public:
 	Trainer(std::string n, Pokemon a, Pokemon b, Pokemon c);
         void switchPokemon(int choice);
        	Move* getMove(int choice);
-	void catchMove(Move*);
+	void catchMove(Move* m);
 	int getHealth();
 	int getAttack();
 	int getDefense();

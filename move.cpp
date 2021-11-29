@@ -14,7 +14,7 @@ void Buff_Move::changeStat(Pokemon p, int stataffected, int statmultiplier) {
      p.stats[stataffected] = p.stats[stataffected] * statmultiplier;
 
 }
-
+/*
 class DragonDance(Pokemon pokemon) {   
                                               
 
@@ -155,3 +155,4 @@ class ExtremeSpeed (Pokemon pokemon) {
 	acc = 1;
 	priority = 1;
 }
+*/

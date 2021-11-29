@@ -26,12 +26,6 @@ protected:
 	Moves* move;
 };
 
-class Status_Move : public Poke_Move {
-protected:
-	std::string statustype;
-	int duration;
-};
-
 class Buff_Move : public Poke_Move {
 protected:
 	int stataffected;
@@ -44,6 +38,11 @@ public:
 class Attack_Move : public Poke_Move {
 protected:
 	int power;
+public:
+	void setPower(int p) { power = p; }
+	void setType(Type t) {type = t;}
+	void setAcc(int a) {acc = a;}
+	void setPriority(int pr) {priority = pr;}
 };
 
 class DragonDance : public Buff_Move {}
@@ -55,7 +54,7 @@ class Agility : public Buff_Move {}
 class TailWhip : public Buff_Move {}
 
 class NastyPlot : public Buff_Move {}
-
+/*
 class Flamethrower : public Attack_Move {}
 
 class Hurricane : public Attack_Move {}
@@ -85,6 +84,6 @@ class FlameCharge : public Attack_Move {}
 class Ember : public Attack_Move {}
 
 class ExtremeSpeed : public Attack_Move {}
-
+*/
 
 

@@ -16,9 +16,8 @@ public:
 class Poke_Move : public Move {
 protected:
 	Type type;
-	int pp;
-	int acc;
-	int priority;
+	int acc = 1;
+	int priority = 0;
 };
 
 class Move_Set : public Move {

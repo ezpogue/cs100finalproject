@@ -1,15 +1,29 @@
 #include <string>
+#include <iostream>
 #include "trainer.hpp"
 
 
-        std::string name;
-        Pokemon* active;
-        Pokemon team[3];
+Trainer::Trainer(std::string n, Pokemon* a, Pokemon* b, Pokemon* c):name(n){
+	team[0] = a;
+	team[1] = b;
+	team[2] = c;
+	active = a;
+}
 
-Trainer::Trainer(std::string n, Pokemon a, Pokemon b, Pokemon c):name(n), team[0](a), team[1](b), team[2](c), active(team){}
-
+bool Trainer::allfainted(){
+	for (auto i : team){
+		if (i->getCurrHP() > 0)
+			return false;
+	}
+	return true;
+}
 void Trainer::switchPokemon(int choice){
-	active = team + (choice%3) - 1;
+	std::cout << getName() << "switched to " << team[(choice%3) - 1]->getName() << "!" << std::endl;
+	active = team[(choice%3) - 1];
+}
+
+Move* Trainer::useMove(int choice){
+	return active->useMove(choice);
 }
 
 Move* Trainer::getMove(int choice){
@@ -20,19 +34,23 @@ void Trainer::catchMove(Move* m){
 	 active->catchMove(m);
 }
 
-int Trainer::getHealth(){
-	return active->getHealth();
+std::string Trainer::getName(){
+	return name;
 }
 
-int Trainer::getAttack(){
-	return active->getAttack();
+int Trainer::getHP(){
+	return active->getCurrHP();
 }
 
-int Trainer::getDefense(){
-	return active->getDefense();
+int Trainer::getATK(){
+	return active->getATK();
 }
 
-int getSpeed(){
-	return active->getSpeed();
+int Trainer::getDEF(){
+	return active->getDEF();
+}
+
+int Trainer::getSPD(){
+	return active->getSPD();
 }
 

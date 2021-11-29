@@ -4,23 +4,27 @@
 #include "move.hpp"
 #include "type.hpp"
 
-using namespace std;
 
 class Pokemon{
 
 protected:
-	string name;
-	pair<Type Pokemon_Type, Type Pokemon_Type2> typePair;
-	Move move[3];
-	int stats[3];
-	string status; //must fix
+	std::string name;
+	Pokemon_Type type[2];
+	Move* move[4];
+	int stats[5];// {HP,ATK,DEF,SPD,CURRENTHP}
 
 public:
-	void outDamage(int rawDamage);
-	void inDamage(int rawDamage);
-	Type getType();
-	void setName(string s) { name = s;};
-	void setPair(int s, Type t) { if (s = 1) { t = Pokemon_Type; } else { t = Pokemon_Type2; }};
-	void setMove(int slot, Move m) { move[slot] = m; };
-	void setStat(int slot, int stat) { stats[slot] = stat; }; 
+	Pokemon(std::string name, Pokemon_Type type1, Pokemon_Type type2, Move* move1, Move* move2, Move* move3, Move* move4, int hp, int atk, int def, int spd);
+	Move* useMove(int choice);
+	Move* getMove(int choice);
+	void catchMove(Move*);
+	std::string getName();
+	Pokemon_Type getType1();
+	Pokemon_Type getType2();
+	int getMaxHP();
+	int getATK();
+	int getDEF();
+	int getSPD();
+	int getCurrHP();
 };
+#endif

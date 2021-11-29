@@ -1,158 +1,165 @@
 #include "move.hpp"
-#include "pokemon.hpp"
+#include "type.hpp"
 
 #include <string>
+#include <vector>
 
-Move::Move(std::string name):name(name) {}
+Move::Move():name(""), type(nullptr), accuracy(100), priority(0){}
 
-std::string Move::getName() {
+Move::Move(std::string n, Move_Type* t, int acc, int prio):name(n), type(t), accuracy(acc), priority(prio){}
+
+std::string Move::getName(){
 	return name;
 }
 
-void Buff_Move::changeStat(Pokemon p, int stataffected, int statmultiplier) {
-
-     p.stats[stataffected] = p.stats[stataffected] * statmultiplier;
-
+Move_Type* Move::getType(){
+	return type;
 }
-/*
-class DragonDance(Pokemon pokemon) {   
-                                              
-
-        changeStat(pokemon, 1, 1.5);
-	changeStat(pokemon, 3, 1.5);
+int Move::getAccuracy(){
+	return accuracy;
 }
 
-class ShellSmash(Pokemon pokemon) {
-
-
-        changeStat(pokemon, 1, 2);
-        changeStat(pokemon, 2, 0.666);
-        changeStat(pokemon, 3, 2);
-
+int Move::getPriority(){
+	return priority;
 }
 
-
-class Agility(Pokemon pokemon) {
-
-        changeStat(pokemon, 3, 2);
+Move_Composite::Move_Composite(std::string n, Move_Type* t, int acc, int prio, Move* m):Move(n,t,acc,prio){
+	movelist.push_back(m);
 }
 
-class TailWhip(Pokemon pokemon) {
-
-	changeStat(pokemon, 2, 0.5);
-
+void Move_Composite::addMove(Move* m){
+	movelist.push_back(m);
 }
 
-class NastyPlot(Pokemon pokemon) {
-
-	changeStat(pokemon, 1, 2);
+int Move_Composite::getDamage(){
+	int damage;
+	for (auto i: movelist)
+		damage += i->getDamage();
+	return damage;
 }
 
-class Flamethrower(Pokemon pokemon) {
-
-	power = 90;
-	pp  = 15;
-	priority = 0;
-	acc = 1;
-	
+float Move_Composite::getATKDebuff(){
+	float debuff;
+	for (auto i: movelist)
+		debuff *= i->getATKDebuff();
+	return debuff;
 }
 
-class Hurricane(Pokemon pokemon) {
-
-	power = 110;
-	acc  = .70;
-	pp = 10;
-	priority = 0;
+float Move_Composite::getDEFDebuff(){
+	float debuff;
+	for (auto i: movelist)
+		debuff *= i->getDEFDebuff();
+	return debuff;
 }
 
-class DragonClaw (Pokemon pokemon) {
-	power = 80;
-	pp = 15;
-	acc = 1;
-	priority = 0;
+float Move_Composite::getSPDDebuff(){
+	float debuff;
+	for (auto i: movelist)
+		debuff *= i->getSPDDebuff();
+	return debuff;
+} 
+
+float Move_Composite::getATKBuff(){
+	float buff;
+	for (auto i: movelist)
+		buff *= i->getATKBuff();
+	return buff;
+} 
+
+float Move_Composite::getDEFBuff(){
+	float buff;
+	for (auto i: movelist)
+		buff *= i->getDEFBuff();
+	return buff;
+} 
+
+float Move_Composite::getSPDBuff(){
+	float buff;
+	for (auto i: movelist)
+		buff *= i->getSPDBuff();
+	return buff;
+} 
+
+Buff_Move::Buff_Move(int affected, float multiplier):Move(), stataffected(affected), statmultiplier(multiplier){}
+
+Buff_Move::Buff_Move(std::string n, Move_Type* t, int acc, int prio, int affected, float multiplier):Move(n,t,acc,prio), stataffected(affected), statmultiplier(multiplier){}
+
+int Buff_Move::getDamage(){return 0;}
+
+float Buff_Move::getATKDebuff(){return 1;}
+
+float Buff_Move::getDEFDebuff(){return 1;}
+
+float Buff_Move::getSPDDebuff(){return 1;}
+
+float Buff_Move::getATKBuff(){
+	if (stataffected == 1)
+		return statmultiplier;
+	else
+		return 1;
 }
 
-class BulletSeed (Pokemon pokemon) {
-	power = 75;
-	pp = 25;
-	acc = 1;
-	priority = 0;
+float Buff_Move::getDEFBuff(){
+	if (stataffected == 2)
+		return statmultiplier;
+	else
+		return 1;
 }
 
-class Earthquake (Pokemon pokemon) {
-	power = 100;
-	pp = 16;
-	acc = 1;
-	priority = 0;
+float Buff_Move::getSPDBuff(){
+	if (stataffected == 3)
+		return statmultiplier;
+	else
+		return 1;
 }
 
-class GigaDrain (Pokemon pokemon) {
-	power = 65;
-	pp = 24;
-	acc = 1;
-	priority = 0;
+Debuff_Move::Debuff_Move(int affected, float multiplier):Move(), stataffected(affected), statmultiplier(multiplier){}
+
+Debuff_Move::Debuff_Move(std::string n, Move_Type* t, int acc, int prio, int affected, float multiplier):Move(n,t,acc,prio), stataffected(affected), statmultiplier(multiplier){}
+
+int Debuff_Move::getDamage(){return 0;}
+
+float Debuff_Move::getATKDebuff(){
+	if (stataffected == 1)
+		return statmultiplier;
+	else
+		return 1;
 }
 
-class LeafStorm (Pokemon pokemon) {
-	power = 120;
-	pp = 5;
-	acc = .7;
-	priority = 0;
+float Debuff_Move::getDEFDebuff(){
+	if (stataffected == 2)
+		return statmultiplier;
+	else
+		return 1;
 }
 
-class HydroPump (Pokemon pokemon) {
-	power = 120;
-	pp = 5;
-	acc = .7;
-	priority = 0;
+float Debuff_Move::getSPDDebuff(){
+	if (stataffected == 3)
+		return statmultiplier;
+	else
+		return 1;
 }
 
-class Scald (Pokemon pokemon) {
-	power = 90;
-	pp = 16;
-	acc = 1;
-	priority = 0;
-}
+float Debuff_Move::getATKBuff(){return 1;}
 
-class FireFang (Pokemon pokemon) {
-	power = 70;
-	pp =  24;
-	acc = 1;
-	priority = 0;
-}
+float Debuff_Move::getDEFBuff(){return 1;}
 
-class QuickAttack (Pokemon pokemon) {
-	power = 40;
-	pp = 32;
-	acc = 1;
-	priority = 1;
-}
+float Debuff_Move::getSPDBuff(){return 1;}
 
-class FireAttack (Pokemon pokemon) {
-	power = 120;
-	pp = 5;
-	acc = .7;
-	priority = 0;
-{
+Attack_Move::Attack_Move(int pow):Move(), power(pow){}
 
-class FlameCharge (Pokemon pokemon) {
-	power = 50;
-	pp = 32;
-	acc = 1;
-	priority = 0;
-}
+Attack_Move::Attack_Move(std::string n, Move_Type* t, int acc, int prio, int pow):Move(n,t,acc,prio), power(pow){}
 
-class Ember (Pokemon pokemon) {
-	power = 40;
-	pp = 32;
-	acc = 1;
-	priority = 0;
-}
+int Attack_Move::getDamage(){return power;}
 
-class ExtremeSpeed (Pokemon pokemon) {
-	power = 80;
-	pp = 5;
-	acc = 1;
-	priority = 1;
-}
-*/
+float Attack_Move::getATKDebuff(){return 1;}
+
+float Attack_Move::getDEFDebuff(){return 1;}
+
+float Attack_Move::getSPDDebuff(){return 1;}
+
+float Attack_Move::getATKBuff(){return 1;}
+
+float Attack_Move::getDEFBuff(){return 1;}
+
+float Attack_Move::getSPDBuff(){return 1;}

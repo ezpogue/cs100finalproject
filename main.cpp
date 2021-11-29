@@ -55,7 +55,9 @@ public:
 		ExtremeSpeed.setType(Normal);
 		
 	};
-
+}
+class Poke {
+public:
 	void Poke() {
 		Pokemon Charizard;
 		Pokemon Venusaur;
@@ -179,7 +181,18 @@ public:
                 Rapidash.setStat(3, 68);
                 Rapidash.setStat(4, 94);;
 	};
+}
 
+class Trainers {
+public:
+	void Trainers {
+
+	Trainer Me(Red, Charizard, Blastoise, Blastoise);
+	Trainer One(Ben, Ponyta, Ponyta, Growlithe);
+	Trainer Two(Jerry, Vulpix, Ponyta, Vulpix);
+	Trainer Leader(Blaine, Rapidash, Arcanine, Ninetales);
+	};
+}
 
 int main(int argc, char* argv[]) {
 

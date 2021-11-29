@@ -3,9 +3,13 @@
 #include <set>
 #include <string>
 
+Type::Type():name(""){}
+
 Type::Type(std::string n):name(n){}
 
 std::string Type::getName(){return name;}
+
+Move_Type::Move_Type():Type(){}
 
 Move_Type::Move_Type(std::string n):Type(n){}
 
@@ -24,6 +28,8 @@ float Move_Type::effectiveness(Pokemon_Type type1, Pokemon_Type type2)
 	} 
 	return effectiveness;
 }
+
+Pokemon_Type::Pokemon_Type():Type(){}
 
 Pokemon_Type::Pokemon_Type(std::string n):Type(n){}
 

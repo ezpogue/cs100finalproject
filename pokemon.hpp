@@ -19,4 +19,8 @@ public:
 	void outDamage(int rawDamage);
 	void inDamage(int rawDamage);
 	Type getType();
+	void setName(string s) { name = s;};
+	void setPair(int s, Type t) { if (s = 1) { t = Pokemon_Type; } else { t = Pokemon_Type2; }};
+	void setMove(int slot, Move m) { move[slot] = m; };
+	void setStat(int slot, int stat) { stats[slot] = stat; }; 
 };

@@ -14,7 +14,7 @@ void Buff_Move::changeStat(Pokemon p, int stataffected, int statmultiplier) {
      p.stats[stataffected] = p.stats[stataffected] * statmultiplier;
 
 }
-
+/*
 class DragonDance(Pokemon pokemon) {   
                                               
 
@@ -47,7 +47,7 @@ class NastyPlot(Pokemon pokemon) {
 
 	changeStat(pokemon, 1, 2);
 }
-/*
+
 class Flamethrower(Pokemon pokemon) {
 
 	power = 90;

@@ -2,8 +2,9 @@
 #define __MOVE_HPP__
 
 #include "type.hpp"
-#include "pokemon.hpp"
 #include <vector>
+#include <string>
+
 class Move{ 
 protected: 
 	std::string name;
@@ -14,6 +15,9 @@ public:
 	Move();
 	Move(std::string n, Type* t, int acc, int prio);
 	std::string getName();
+	Type* getType();
+	int getAccuracy();
+	int getPriority();
 	virtual int getDamage();
 	virtual float getATKDebuff();
 	virtual float getDEFDebuff();
@@ -41,11 +45,10 @@ public:
 class Buff_Move : public Move {
 protected:
 	int stataffected;
-	int statchange;
 	float statmultiplier;
 public:
-	Buff_Move(int affected, int change, float multiplier);
-	Buff_Move(std::string n, Type* t, int acc, int prio, int affected, int change, float multiplier);
+	Buff_Move(int affected, float multiplier);
+	Buff_Move(std::string n, Type* t, int acc, int prio, int affected, float multiplier);
 	int getDamage();
 	float getATKDebuff();
 	float getDEFDebuff();
@@ -58,11 +61,10 @@ public:
 class Debuff_Move : public Move {
 protected:
 	int stataffected;
-	int statchange;
 	float statmultiplier;
 public:
-	Debuff_Move(int affected, int change, float multiplier);
-	Debuff_Move(std::string n, Type* t, int acc, int prio, int affected, int change, float multiplier);
+	Debuff_Move(int affected, float multiplier);
+	Debuff_Move(std::string n, Type* t, int acc, int prio, int affected, float multiplier);
 	int getDamage();
 	float getATKDebuff();
 	float getDEFDebuff();

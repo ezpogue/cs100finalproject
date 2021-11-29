@@ -15,7 +15,7 @@ class Battle
 		bool battleComplete();
 		bool speedCheck();
 		std::string getWinner();
-		void turn(unsigned int p, unsigned int e);
+		void turn(int p, int e);
     };
 
 #endif

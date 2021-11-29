@@ -1,57 +1,61 @@
+#include <string>
+#include "battle.hpp"
+#include "trainer.hpp"
+
 Battle::Battle(Trainer* p, Trainer* e):player(p), enemy(e){}
 
 bool Battle::battleComplete()
 {
-Pokemon* playerTeam, enemyTeam;
-playerTeam = getTeam(player);
-enemyTeam = getTeam(enemy);
-for (auto i : enemyTeam){
-	if (i.getHealth() <= 0){
-	winner = "player"
-	return true;
+	if (enemy->allfainted()){
+		winner = player->getName();
+		return true;
 	}
-}
-for (auto i : playerTeam){
-	if (i.getHealth()<= 0){
-	winner = "enemy"
-	return true;
+	if (player->allfainted()){
+		winner = enemy->getName();
+		return true;
 	}
-}
 	return false;
 }
 
 bool Battle::speedCheck()
 {
-if (player->getSpeed() >= enemy->getSpeed()) return true;
+if (player->getSPD() >= enemy->getSPD()) return true;
 else return false;
 }
 
 std::string Battle::getWinner(){return winner;}
 
-void Battle::turn(unsigned int p, unsigned int e)
+void Battle::turn(int p, int e)
 {
-	bool first = speedCheck();
+	bool first = true;
+	if (p <= 4){
+		if (player->getMove(p)->getPriority() < enemy->getMove(e)->getPriority())
+			first = false;
+		else if (player->getMove(p)->getPriority() == enemy->getMove(e)->getPriority())
+			first = speedCheck();
+	}
 	if (first = true){
 		switch (p){
 		case 1:
 		case 2:
 		case 3:
 		case 4:
-			enemy->catchMove(player->getMove(p));
+			enemy->catchMove(player->useMove(p));
 			break;
 		case 5:
 		case 6:
 			player->switchPokemon(p-3);
 		}
-		player->catchMove(enemy->getMove(e));
+		player->catchMove(enemy->useMove(e));
+	}
 	else{
-		player->catchMove(enemy->getMove(e));
+		player->catchMove(enemy->useMove(e));
 		switch (p){
 		case 1:
 		case 2:
 		case 3:
 		case 4:
-			enemy->catchMove(player->getMove(p));
+			enemy->catchMove(player->useMove(p));
 			break;
 		case 5:
 		case 6:

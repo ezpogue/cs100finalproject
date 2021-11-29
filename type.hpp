@@ -8,12 +8,14 @@ class Type{
 protected:
 	std::string name;
 public:
+	Type();
 	Type(std::string n);
 	std::string getName();
 };
 
 class Pokemon_Type : public Type{
 public:
+	Pokemon_Type();
 	Pokemon_Type(std::string n);
 };
 
@@ -23,6 +25,7 @@ protected:
 	std::set<std::string> notveryeffective;
 	std::set<std::string> immune;
 public:
+	Move_Type();
 	Move_Type(std::string n);
 	Move_Type(std::set<std::string> a, std::set<std::string> b, std::set<std::string> c,  std::string n);
 	float effectiveness(Pokemon_Type type1, Pokemon_Type type2);

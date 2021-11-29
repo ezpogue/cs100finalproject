@@ -9,6 +9,13 @@ Trainer::Trainer(std::string n, Pokemon* a, Pokemon* b, Pokemon* c):name(n){
 	active = a;
 }
 
+bool Trainer::allfainted(){
+	for (auto i : team){
+		if (i->getCurrHP() > 0)
+			return false;
+	}
+	return true;
+}
 void Trainer::switchPokemon(int choice){
 	active = team[(choice%3) - 1];
 }
@@ -16,9 +23,17 @@ void Trainer::switchPokemon(int choice){
 Move* Trainer::useMove(int choice){
 	return active->useMove(choice);
 }
+
+Move* Trainer::getMove(int choice){
+	return active->getMove(choice);
+}
 	
 void Trainer::catchMove(Move* m){
 	 active->catchMove(m);
+}
+
+std::string Trainer::getName(){
+	return name;
 }
 
 int Trainer::getHP(){

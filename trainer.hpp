@@ -14,9 +14,12 @@ protected:
 
 public:
 	Trainer(std::string n, Pokemon* a, Pokemon* b, Pokemon* c);
+	bool allfainted();
     void switchPokemon(int choice);
     Move* useMove(int choice);
+	Move* getMove(int choice);
 	void catchMove(Move* m);
+	std::string getName();
 	int getHP();
 	int getATK();
 	int getDEF();

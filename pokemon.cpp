@@ -26,6 +26,10 @@ Move* Pokemon::useMove(int choice){
 	return move[choice];
 }
 
+Move* Pokemon::getMove(int choice){
+	return move[choice];
+}
+
 void Pokemon::catchMove(Move* a){
 	if (a->getATKDebuff() != 1)
 		stats[1] *= a->getATKDebuff();

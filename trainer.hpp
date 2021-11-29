@@ -10,16 +10,16 @@ class Trainer
 protected:
         std::string name;
         Pokemon* active;
-        Pokemon team[3];
+        Pokemon* team[3];
 
 public:
-	Trainer(std::string n, Pokemon a, Pokemon b, Pokemon c);
-        void switchPokemon(int choice);
-       	Move* getMove(int choice);
+	Trainer(std::string n, Pokemon* a, Pokemon* b, Pokemon* c);
+    void switchPokemon(int choice);
+    Move* useMove(int choice);
 	void catchMove(Move* m);
-	int getHealth();
-	int getAttack();
-	int getDefense();
-	int getSpeed();
+	int getHP();
+	int getATK();
+	int getDEF();
+	int getSPD();
 };
 #endif

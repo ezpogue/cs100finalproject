@@ -2,37 +2,38 @@
 #include "trainer.hpp"
 
 
-        std::string name;
-        Pokemon* active;
-        Pokemon team[3];
-
-Trainer::Trainer(std::string n, Pokemon a, Pokemon b, Pokemon c):name(n), team[0](a), team[1](b), team[2](c), active(team){}
-
-void Trainer::switchPokemon(int choice){
-	active = team + (choice%3) - 1;
+Trainer::Trainer(std::string n, Pokemon* a, Pokemon* b, Pokemon* c):name(n){
+	team[0] = a;
+	team[1] = b;
+	team[2] = c;
+	active = a;
 }
 
-Move* Trainer::getMove(int choice){
-	return active->getMove(choice);
+void Trainer::switchPokemon(int choice){
+	active = team[(choice%3) - 1];
+}
+
+Move* Trainer::useMove(int choice){
+	return active->useMove(choice);
 }
 	
 void Trainer::catchMove(Move* m){
 	 active->catchMove(m);
 }
 
-int Trainer::getHealth(){
-	return active->getHealth();
+int Trainer::getHP(){
+	return active->getCurrHP();
 }
 
-int Trainer::getAttack(){
-	return active->getAttack();
+int Trainer::getATK(){
+	return active->getATK();
 }
 
-int Trainer::getDefense(){
-	return active->getDefense();
+int Trainer::getDEF(){
+	return active->getDEF();
 }
 
-int getSpeed(){
-	return active->getSpeed();
+int Trainer::getSPD(){
+	return active->getSPD();
 }
 

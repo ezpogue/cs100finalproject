@@ -8,14 +8,14 @@
 class Move{ 
 protected: 
 	std::string name;
-	Type* type;
+	Move_Type* type;
 	int accuracy;
 	int priority;
 public:
 	Move();
-	Move(std::string n, Type* t, int acc, int prio);
+	Move(std::string n, Move_Type* t, int acc, int prio);
 	std::string getName();
-	Type* getType();
+	Move_Type* getType();
 	int getAccuracy();
 	int getPriority();
 	virtual int getDamage();
@@ -31,7 +31,7 @@ class Move_Composite : public Move {
 protected:
 	std::vector<Move*> movelist;
 public:
-	Move_Composite(std::string n, Type* t, int acc, int prio, Move* m);
+	Move_Composite(std::string n, Move_Type* t, int acc, int prio, Move* m);
 	void addMove(Move* m);
 	int getDamage();
 	float getATKDebuff();
@@ -48,7 +48,7 @@ protected:
 	float statmultiplier;
 public:
 	Buff_Move(int affected, float multiplier);
-	Buff_Move(std::string n, Type* t, int acc, int prio, int affected, float multiplier);
+	Buff_Move(std::string n, Move_Type* t, int acc, int prio, int affected, float multiplier);
 	int getDamage();
 	float getATKDebuff();
 	float getDEFDebuff();
@@ -64,7 +64,7 @@ protected:
 	float statmultiplier;
 public:
 	Debuff_Move(int affected, float multiplier);
-	Debuff_Move(std::string n, Type* t, int acc, int prio, int affected, float multiplier);
+	Debuff_Move(std::string n, Move_Type* t, int acc, int prio, int affected, float multiplier);
 	int getDamage();
 	float getATKDebuff();
 	float getDEFDebuff();
@@ -79,7 +79,7 @@ protected:
 	int power;
 public:
 	Attack_Move(int pow);
-	Attack_Move(std::string n, Type* t, int acc, int prio, int pow);
+	Attack_Move(std::string n, Move_Type* t, int acc, int prio, int pow);
 	int getDamage();
 	float getATKDebuff();
 	float getDEFDebuff();

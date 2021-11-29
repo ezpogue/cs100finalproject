@@ -6,13 +6,13 @@
 
 Move::Move():name(""), type(nullptr), accuracy(100), priority(0){}
 
-Move::Move(std::string n, Type* t, int acc, int prio):name(n), type(t), accuracy(acc), priority(prio){}
+Move::Move(std::string n, Move_Type* t, int acc, int prio):name(n), type(t), accuracy(acc), priority(prio){}
 
 std::string Move::getName(){
 	return name;
 }
 
-Type* Move::getType(){
+Move_Type* Move::getType(){
 	return type;
 }
 int Move::getAccuracy(){
@@ -23,7 +23,7 @@ int Move::getPriority(){
 	return priority;
 }
 
-Move_Composite::Move_Composite(std::string n, Type* t, int acc, int prio, Move* m):Move(n,t,acc,prio){
+Move_Composite::Move_Composite(std::string n, Move_Type* t, int acc, int prio, Move* m):Move(n,t,acc,prio){
 	movelist.push_back(m);
 }
 
@@ -82,7 +82,7 @@ float Move_Composite::getSPDBuff(){
 
 Buff_Move::Buff_Move(int affected, float multiplier):Move(), stataffected(affected), statmultiplier(multiplier){}
 
-Buff_Move::Buff_Move(std::string n, Type* t, int acc, int prio, int affected, float multiplier):Move(n,t,acc,prio), stataffected(affected), statmultiplier(multiplier){}
+Buff_Move::Buff_Move(std::string n, Move_Type* t, int acc, int prio, int affected, float multiplier):Move(n,t,acc,prio), stataffected(affected), statmultiplier(multiplier){}
 
 int Buff_Move::getDamage(){return 0;}
 
@@ -115,7 +115,7 @@ float Buff_Move::getSPDBuff(){
 
 Debuff_Move::Debuff_Move(int affected, float multiplier):Move(), stataffected(affected), statmultiplier(multiplier){}
 
-Debuff_Move::Debuff_Move(std::string n, Type* t, int acc, int prio, int affected, float multiplier):Move(n,t,acc,prio), stataffected(affected), statmultiplier(multiplier){}
+Debuff_Move::Debuff_Move(std::string n, Move_Type* t, int acc, int prio, int affected, float multiplier):Move(n,t,acc,prio), stataffected(affected), statmultiplier(multiplier){}
 
 int Debuff_Move::getDamage(){return 0;}
 
@@ -148,7 +148,7 @@ float Debuff_Move::getSPDBuff(){return 1;}
 
 Attack_Move::Attack_Move(int pow):Move(), power(pow){}
 
-Attack_Move::Attack_Move(std::string n, Type* t, int acc, int prio, int pow):Move(n,t,acc,prio), power(pow){}
+Attack_Move::Attack_Move(std::string n, Move_Type* t, int acc, int prio, int pow):Move(n,t,acc,prio), power(pow){}
 
 int Attack_Move::getDamage(){return power;}
 

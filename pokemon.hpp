@@ -17,11 +17,13 @@ public:
 	Pokemon(std::string name, Pokemon_Type type1, Pokemon_Type type2, Move* move1, Move* move2, Move* move3, Move* move4, int hp, int atk, int def, int spd);
 	Move* useMove(int choice);
 	void catchMove(Move*);
+	std::string getName();
 	Pokemon_Type getType1();
 	Pokemon_Type getType2();
-	int getHP();
+	int getMaxHP();
 	int getATK();
 	int getDEF();
 	int getSPD();
+	int getCurrHP();
 };
 #endif

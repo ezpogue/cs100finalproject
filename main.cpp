@@ -133,7 +133,54 @@ public:
                 Rapidash.setMove(2, Flamethrower);
                 Rapidash.setMove(3, buff);
                 Rapidash.setMove(4, QuickAttack);
+
+		Charizard.setStat(1, 121);
+		Charizard.setStat(2, 82);
+		Charizard.setStat(3, 77);
+		Charizard.setStat(4, 95);
+
+		Venusaur.setStat(1, 117);
+                Venusaur.setStat(2, 77);
+                Venusaur.setStat(3, 83);
+                Venusaur.setStat(4, 75);
+
+		Blastoise.setStat(1, 125);
+		Blastoise.setStat(2, 83);
+		Blastoise.setStat(3, 97);
+		Blastoise.setStat(4, 79);
+
+		Vulpix.setStat(1, 88);
+		Vulpix.setStat(2, 47);
+                Vulpix.setStat(3, 47);
+                Vulpix.setStat(4, 66);
+
+                Ninetales.setStat(1, 124);
+		Ninetales.setStat(2, 95);
+		Ninetales.setStat(3, 93);
+		Ninetales.setStat(4, 110);
+
+		Growlithe.setStat(1, 106);
+		Growlithe.setStat(2, 73);
+		Growlithe.setStat(3, 53);
+		Growlithe.setStat(4, 65);
+		
+		Arcanine.setStat(1, 131);
+		Arcanine.setStat(2, 102);
+		Arcanine.setStat(3, 79);
+		Arcanine.setStat(4, 91)
+
+                Ponyta.setStat(1, 106);
+                Ponyta.setStat(2, 85);
+                Ponyta.setStat(3, 61);
+                Ponyta.setStat(4, 89);
+        
+                Rapidash.setStat(1, 106);
+                Rapidash.setStat(2, 90);
+                Rapidash.setStat(3, 68);
+                Rapidash.setStat(4, 94);;
 	};
+
+
 int main(int argc, char* argv[]) {
 
 Pokemon pokemon; 

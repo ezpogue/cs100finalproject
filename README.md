@@ -10,7 +10,7 @@ We will be writing this game in [C++](https://www.cplusplus.com/), and will be u
 ### Input and Output
 For input and output we will be using the terminal. The game will output the current situation, along with options on how to proceed. The user will then input what they want to do, and the game will respond accordingly. 
 ### Features
-Features of the game will include core Pokemon features, such as battling monsters, catching monsters, using items, and [whiting out because of Whitney's Miltank](https://rage-quit.fandom.com/wiki/Whitney%27s_Miltank_(Pok%C3%A9mon)).
+Features of the game will include core Pokemon battle features, such as choosing moves based on their effectiveness, swapping Pokemon, and [whiting out because of Whitney's Miltank](https://rage-quit.fandom.com/wiki/Whitney%27s_Miltank_(Pok%C3%A9mon)).
 
 ## Class Diagram
 Our class diagrams can be viewed [here.](https://lucid.app/lucidchart/bead12b5-0e52-4913-a2b0-adf8b4624c81/edit?viewport_loc=13%2C-36%2C2219%2C989%2C0_0&invitationId=inv_2795bc8a-8a70-4143-a02d-184a171e0b08)

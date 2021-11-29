@@ -29,7 +29,7 @@ public:
 
 class Move_Composite : public Move {
 protected:
-	vector<Move*> movelist;
+	std::vector<Move*> movelist;
 public:
 	Move_Composite(std::string n, Type* t, int acc, int prio, Move* m);
 	void addMove(Move* m);

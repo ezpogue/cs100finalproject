@@ -30,9 +30,12 @@ We utilize the [facade pattern](https://en.wikipedia.org/wiki/Facade_pattern) in
  > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
  ## Screenshots
- > Screenshots of the input/output after running your application
+![Screenshot 1](FinalProjectScreenshot1.png)
+![Screenshot 2](FinalProjectScreenshot2.png)
+
  ## Installation/Usage
- > Instructions on installing and running your application
- ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ To run the game, clone the repository and compile with CMake. Then the game can be run using the generated executable.
  
+ To play the game, you can choose options 1 - 4 to use a move, or you can switch Pokemon by inputting 5-7. If your Pokemon faints you can use 1-3 to choose a replacement. Please don't try a number that's outside of those ranges because it will probably break it. :(
+ ## Testing
+ We have around 50 unit/integration tests for our classes testing almost every function. We have also manually gone through the program and tested it to make sure it is winnable and that there are no major bugs that can't be directly tested for.

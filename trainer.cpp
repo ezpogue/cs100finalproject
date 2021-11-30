@@ -29,6 +29,11 @@ Move* Trainer::useMove(int choice){
 Move* Trainer::getMove(int choice){
 	return active->getMove(choice);
 }
+
+Pokemon* Trainer::getPokemon() {
+	return active;
+}
+
 	
 void Trainer::catchMove(Move* m, Pokemon* user){
 	 active->catchMove(m,user);

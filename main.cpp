@@ -4,8 +4,8 @@
 #include "pokemon.hpp"
 #include "trainer.hpp"
 
+int main(int argc, char* argv[]) {
 
-void s() {
 		Move_Type* a = new Move_Type("Dark");
 		Attack_Move* Flamethrower = new Attack_Move("Flamethrower", new Fire_Move(), 100, 0, 90);
                 Attack_Move* Hurricane = new Attack_Move("Hurricane", new Flying_Move(), 70, 0, 110); 
@@ -23,22 +23,19 @@ void s() {
                 Attack_Move* Ember = new Attack_Move("Ember", new Fire_Move(), 100, 0, 40);
                 Attack_Move* ExtremeSpeed = new Attack_Move("Extreme Speed", new Normal_Move(), 100, 1, 80);
 		
-		Attack_Move* m;
-		Attack_Move* m1;
+		
 		Buff_Move* NastyPlot = new Buff_Move("Nasty Plot", a, 100, 0, 1, 2);
 		Debuff_Move* TailWhip = new Debuff_Move("Tail Whip", a, 100, 0, 1, 2);
-		Move_Composite Shell_Smash("Shell Smash", a, 100, 0, m);
-		Buff_Move* ss1 = new Buff_Move("ss1", a, 100, 0, 1, 2);		
+                Buff_Move* ss1 = new Buff_Move("ss1", a, 100, 0, 1, 2);
+		Move_Composite* Shell_Smash = new Move_Composite("Shell Smash", a, 100, 0, ss1);
                 Buff_Move* ss2 = new Buff_Move("ss2", a, 100, 0, 3, 2);
 		Debuff_Move* ss3 = new Debuff_Move("ss3", a, 100, 0, 2, 2);
-		Shell_Smash.addMove(ss1);
-                Shell_Smash.addMove(ss2);
-                Shell_Smash.addMove(ss3);
-		Move_Composite DragonDance("Dragon Dance", a, 100, 0, m1);
+                Shell_Smash->addMove(ss2);
+                Shell_Smash->addMove(ss3);
                 Buff_Move* dd1 = new Buff_Move("dd1", a, 100, 0, 1, 1.5);
+		Move_Composite* DragonDance = new Move_Composite("Dragon Dance", a, 100, 0, dd1);
                 Buff_Move* dd2 = new Buff_Move("dd2", a, 100, 0, 3, 1.5);
-		DragonDance.addMove(dd1);
-		DragonDance.addMove(dd2);
+		DragonDance->addMove(dd2);
 		Buff_Move* Agility = new Buff_Move("Agility", a, 100, 0, 3, 2);
 
 		Pokemon_Type Fire("Fire");
@@ -57,22 +54,19 @@ void s() {
 		Pokemon* Venusaur = new Pokemon("Venusaur", Grass, Poison, LeafStorm, BulletSeed, GigaDrain, Earthquake, 117, 77, 83, 75);
 		Pokemon* Blastoise = new Pokemon("Blastoise", Water, Water, HydroPump, Scald, Earthquake, Shell_Smash, 125, 83, 97, 79);
 
-		Trainer Me("Red", Charizard, Blastoise, Blastoise);
-		Trainer One("Ben", Ponyta, Ponyta, Growlithe);
-		Trainer Two("Jerry", Vulpix, Ponyta, Vulpix);
-		Trainer Leader("Blaine", Rapidash, Arcanine, Ninetales);
+		Trainer* Me = new Trainer("Red", Charizard, Blastoise, Blastoise);
+		Trainer* One = new Trainer("Ben", Ponyta, Ponyta, Growlithe);
+		Trainer* Two = new Trainer("Jerry", Vulpix, Ponyta, Vulpix);
+		Trainer* Leader = new Trainer("Blaine", Rapidash, Arcanine, Ninetales);
 	
-}
-
-int main(int argc, char* argv[]) {
-
+	Battle b1(Me, One);
 	
-	s start;
-/*
-	Battle(Me, One);
+		
+	while(b1.battleComplete() == false) {
+	
+	}
 	Battle(Me, Two);
-	Battle(Leader);
-*/		
+	Battle(Me, Leader);	
 	
 }
 

@@ -11,6 +11,14 @@ ADD_EXECUTABLE(test
     type.cpp
 )
 
+ADD_EXECUTABLE(main
+	main.cpp
+	move.cpp
+	battle.cpp
+	type.cpp
+	pokemon.cpp
+)
+
 TARGET_LINK_LIBRARIES(test gtest)
 
 TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)

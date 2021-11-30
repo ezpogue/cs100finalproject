@@ -1,7 +1,12 @@
 #include "move.hpp"
-class Moves {
+#include "type.hpp"
+#include "battle.hpp"
+#include "pokemon.hpp"
+#include "trainer.hpp"
+
+class start {
 public:
-	void Moves() {
+	void s() {
 		Move_Type* a = new Move_Type("Dark");
 		Attack_Move* Flamethrower = new Attack_Move("Flamethrower", new Fire_Move(), 100, 0, 90);
                 Attack_Move* Hurricane = new Attack_Move("Hurricane", new Flying_Move(), 70, 0, 110); 
@@ -34,11 +39,7 @@ public:
 		m1.addMove(dd1);
 		m1.addMove(dd2);
 		Buff_Move* Agility = new Buff_Move("Agility", a, 100, 0, 3, 2);
-	};
-}
-class Poke {
-public:
-	void Poke() {
+
 		Pokemon_Type Fire("Fire");
 		Pokemon_Type Water("Water");
 		Pokemon_Type Grass("Grass");
@@ -54,22 +55,23 @@ public:
 		Pokemon Charizard("Charizard", Fire, Flying, FireBlast, DragonClaw, DragonDance, Hurricane, 121, 82, 77, 95);
 		Pokemon Venusaur("Venusaur", Grass, Poison, LeafStorm, BulletSeed, GigaDrain, Earthquake, 117, 77, 83, 75);
 		Pokemon Blastoise("Blastoise", Water, Water, HydroPump, Scald, Earthquake, ShellSmash, 125, 83, 97, 79);
-	};
-}
 
-class Trainers {
-public:
-	void Trainers {
-
-	Trainer Me(Red, Charizard, Blastoise, Blastoise);
-	Trainer One(Ben, Ponyta, Ponyta, Growlithe);
-	Trainer Two(Jerry, Vulpix, Ponyta, Vulpix);
-	Trainer Leader(Blaine, Rapidash, Arcanine, Ninetales);
+		Trainer Me("Red", Charizard, Blastoise, Blastoise);
+		Trainer One("Ben", Ponyta, Ponyta, Growlithe);
+		Trainer Two("Jerry", Vulpix, Ponyta, Vulpix);
+		Trainer Leader("Blaine", Rapidash, Arcanine, Ninetales);
 	};
 }
 
 int main(int argc, char* argv[]) {
 
-Pokemon pokemon; 
+	
+	s start;
+
+	Battle(Me, One);
+	Battle(Me, Two);
+	Battle(Leader);
+		
+	
 }
 

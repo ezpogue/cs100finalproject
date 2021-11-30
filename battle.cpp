@@ -29,9 +29,9 @@ void Battle::turn(int p, int e)
 {
 	bool first = true;
 	if (p <= 4){
-		if (player->getMove(p)->getPriority() < enemy->getMove(e)->getPriority())
+		if (player->getMove(p-1)->getPriority() < enemy->getMove(e)->getPriority())
 			first = false;
-		else if (player->getMove(p)->getPriority() == enemy->getMove(e)->getPriority())
+		else if (player->getMove(p-1)->getPriority() == enemy->getMove(e)->getPriority())
 			first = speedCheck();
 	}
 	if (first = true){
@@ -41,7 +41,7 @@ void Battle::turn(int p, int e)
 		case 2:
 		case 3:
 		case 4:
-			enemy->catchMove(player->useMove(p), player->getPokemon()); //user in catchMove couldbe wrong 
+			enemy->catchMove(player->useMove(p-1), player->getPokemon()); //user in catchMove couldbe wrong 
 			break;
 		case 5:
 		case 6:
@@ -56,7 +56,7 @@ void Battle::turn(int p, int e)
 		case 2:
 		case 3:
 		case 4:
-			enemy->catchMove(player->useMove(p), player->getPokemon());
+			enemy->catchMove(player->useMove(p-1), player->getPokemon());
 			break;
 		case 5:
 		case 6:

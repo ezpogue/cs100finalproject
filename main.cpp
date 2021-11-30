@@ -3,10 +3,16 @@
 #include "battle.hpp"
 #include "pokemon.hpp"
 #include "trainer.hpp"
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
 #include <iostream>
+
 using  namespace std;
 int main(int argc, char* argv[]) {
 
+
+		srand (time(NULL));
 		Move_Type* a = new Move_Type("Dark");
 		Attack_Move* Flamethrower = new Attack_Move("Flamethrower", new Fire_Move(), 100, 0, 90);
                 Attack_Move* Hurricane = new Attack_Move("Hurricane", new Flying_Move(), 70, 0, 110); 
@@ -64,47 +70,238 @@ int main(int argc, char* argv[]) {
 		Trainer* Leader = new Trainer("Blaine", Rapidash, Arcanine, Ninetales);
 	
 	Battle b1(Me, One);
-	int h = 0;
-	int i = 1;	
+	int h = rand() % 4;
+	int i = 1;
+	int j = 0;	
+	cout << "You are battling Trainer Ben as Red!" <<endl;
+	cout << endl;
 	while(b1.battleComplete() == false) {
 		cout << "=======================================" << endl;
                 cout << "=======================================" << endl;
+		cout << endl;
 		cout << b1.getTrainer()->getPokemon()->getName() <<" "<< b1.getTrainer()->getPokemon()->getCurrHP() << "/" << b1.getTrainer()->getPokemon()->getMaxHP() << endl;
 		cout << Me->getPokemon()->getName() << " " << Me->getPokemon()->getCurrHP() << "/" << Me->getPokemon()->getMaxHP() << endl;
+		cout << endl;
                 cout << "=======================================" << endl;
+		cout << endl;
 		cout << "Choose a move:" << endl;
 		cout << "1. "<< Me->getPokemon()->getMove(0)->getName() << " 2. " << Me->getPokemon()->getMove(1)->getName() << " 3. " <<  Me->getPokemon()->getMove(2)->getName() << " 4. " << Me->getPokemon()->getMove(3)->getName() << " " <<endl;
 		int x = 0;
+		cout << endl;
 		cin >> x;
-		x--;
+		
+		cout << endl;
                 cout << "=======================================" << endl;
+		cout << endl;
 		b1.turn(x, h);
+		cout << endl;
 		if(b1.getTrainer()->getPokemon()->getCurrHP() <= 0 && i != 3) {
 			cout << b1.getTrainer()->getPokemon()->getName() << " fainted!" << endl;
 			b1.getTrainer()->switchPokemon(i);
 			i++;
 		}
-		
 		if(Me->getPokemon()->getCurrHP() <= 0) {
-                        Me->switchPokemon(1);
-                        if(Me->getPokemon()->getCurrHP() <= 0) {
-                                Me->switchPokemon(2);
+			cout << "What Pokemon would you like to switch to?" <<endl;
+			if(Me->getSlot(0)->getCurrHP() > 0) {
+				cout <<"1. "<< Me->getSlot(0)->getName() << " ";
+			} else {
+				cout <<"1. "<< Me->getSlot(0)->getName() << " (Fainted) ";
+			}
+                        if(Me->getSlot(1)->getCurrHP() > 0) {
+                                cout <<"2. "<< Me->getSlot(1)->getName() << " ";
+                        } else {
+				cout <<"2. "<< Me->getSlot(1)->getName() << " (Fainted) ";
+			}
+                        if(Me->getSlot(2)->getCurrHP() > 0) {
+                                cout <<"3. "<< Me->getSlot(2)->getName() << endl;
+                        } else {
+				cout <<"3. "<< Me->getSlot(2)->getName() << " (Fainted) " << endl;
+			}
+                        if (Me->getSlot(0)->getCurrHP() < 0 && Me->getSlot(1)->getCurrHP() < 0 && Me->getSlot(2)->getCurrHP() < 0) {
+                                break;
                         }
-                        
+	
+			while(Me->getSlot(j)->getCurrHP() < 0) {
+				cin >> j;
+				j--;
+			
+				if (Me->getSlot(j)->getCurrHP() < 0) {
+					cout << "You cannot choose a fainted Pokemon!" << endl;
+				} else {
+                        		Me->switchPokemon(j);
+				}
+			}       
                 }
-		
-	
-		if(h = 3) {
-			h = 0;
-		} else {	
-			h++;
-		}
-		
-	}
-	
+		h = rand() % 4;		
+	}	
+	cout << endl;
         cout << "=======================================" << endl;
-	Battle(Me, Two);
-	Battle(Me, Leader);	
+	cout << endl;
+	if ("Red" != b1.getWinner()) {
+		cout << "Ben wins!" << endl;
+		cout << "You lose, game over!" << endl;
+		exit;
+	} else {
+		cout << "Red wins!" << endl;
+	}
+	for(int g = 0; g < 50; g++) {
+		cout << endl;
+	}
+	Battle b2(Me, Two);
 	
+	h = rand() % 4;
+	i = 1;
+	j = 0;
+        cout << "You are battling Trainer Jerry as Red!" <<endl;
+        cout << endl;
+	
+	while(b2.battleComplete() == false) {
+		cout << "=======================================" << endl;
+                cout << "=======================================" << endl;
+		cout << endl;
+		cout << b2.getTrainer()->getPokemon()->getName() <<" "<< b2.getTrainer()->getPokemon()->getCurrHP() << "/" << b2.getTrainer()->getPokemon()->getMaxHP() << endl;
+		cout << Me->getPokemon()->getName() << " " << Me->getPokemon()->getCurrHP() << "/" << Me->getPokemon()->getMaxHP() << endl;
+		cout << endl;
+                cout << "=======================================" << endl;
+		cout << endl;
+		cout << "Choose a move:" << endl;
+		cout << "1. "<< Me->getPokemon()->getMove(0)->getName() << " 2. " << Me->getPokemon()->getMove(1)->getName() << " 3. " <<  Me->getPokemon()->getMove(2)->getName() << " 4. " << Me->getPokemon()->getMove(3)->getName() << " " <<endl;
+		int x = 0;
+		cout << endl;
+		cin >> x;
+		cout << endl;
+                cout << "=======================================" << endl;
+		cout << endl;
+		b2.turn(x, h);
+		cout << endl;
+		if(b2.getTrainer()->getPokemon()->getCurrHP() <= 0 && i != 3) {
+			cout << b2.getTrainer()->getPokemon()->getName() << " fainted!" << endl;
+			b2.getTrainer()->switchPokemon(i);
+			i++;
+		}
+		if(Me->getPokemon()->getCurrHP() <= 0) {
+			cout << "What Pokemon would you like to switch to?" <<endl;
+			if(Me->getSlot(0)->getCurrHP() > 0) {
+				cout <<"1. "<< Me->getSlot(0)->getName() << " ";
+			} else {
+				cout <<"1. "<< Me->getSlot(0)->getName() << " (Fainted) ";
+			}
+                        if(Me->getSlot(1)->getCurrHP() > 0) {
+                                cout <<"2. "<< Me->getSlot(1)->getName() << " ";
+                        } else {
+				cout <<"2. "<< Me->getSlot(1)->getName() << " (Fainted) ";
+			}
+                        if(Me->getSlot(2)->getCurrHP() > 0) {
+                                cout <<"3. "<< Me->getSlot(2)->getName() << endl;
+                        } else {
+				cout <<"3. "<< Me->getSlot(2)->getName() << " (Fainted) " << endl;
+			}
+                        if (Me->getSlot(0)->getCurrHP() < 0 && Me->getSlot(1)->getCurrHP() < 0 && Me->getSlot(2)->getCurrHP() < 0) {
+                                break;
+                        }
+	
+			while(Me->getSlot(j)->getCurrHP() < 0) {
+				cin >> j;
+				j--;
+			
+				if (Me->getSlot(j)->getCurrHP() < 0) {
+					cout << "You cannot choose a fainted Pokemon!" << endl;
+				} else {
+                        		Me->switchPokemon(j);
+				}
+			}       
+                }
+		 h = rand() % 4;		
+	}	
+	cout << endl;
+        cout << "=======================================" << endl;
+	cout << endl;
+	if ("Red" != b2.getWinner()) {
+		cout << "Jerry wins!" << endl;
+		cout << "You lose, game over!" << endl;
+		exit;
+	} else {
+		cout << "Red wins!" << endl;
+	}
+	Battle b3(Me, Leader);	
+	 
+        for(int g = 0; g < 50; g++) {
+                cout << endl;
+        }
+
+	h = rand() % 4;
+	i = 1;
+	j = 0;
+        cout << "You are battling Gym Leader Blaine as Red!" <<endl;
+        cout << endl;
+	
+	while(b3.battleComplete() == false) {
+		cout << "=======================================" << endl;
+                cout << "=======================================" << endl;
+		cout << endl;
+		cout << b3.getTrainer()->getPokemon()->getName() <<" "<< b3.getTrainer()->getPokemon()->getCurrHP() << "/" << b3.getTrainer()->getPokemon()->getMaxHP() << endl;
+		cout << Me->getPokemon()->getName() << " " << Me->getPokemon()->getCurrHP() << "/" << Me->getPokemon()->getMaxHP() << endl;
+		cout << endl;
+                cout << "=======================================" << endl;
+		cout << endl;
+		cout << "Choose a move:" << endl;
+		cout << "1. "<< Me->getPokemon()->getMove(0)->getName() << " 2. " << Me->getPokemon()->getMove(1)->getName() << " 3. " <<  Me->getPokemon()->getMove(2)->getName() << " 4. " << Me->getPokemon()->getMove(3)->getName() << " " <<endl;
+		int x = 0;
+		cout << endl;
+		cin >> x;
+		cout << endl;
+                cout << "=======================================" << endl;
+		cout << endl;
+		b3.turn(x, h);
+		cout << endl;
+		if(b3.getTrainer()->getPokemon()->getCurrHP() <= 0 && i != 3) {
+			cout << b3.getTrainer()->getPokemon()->getName() << " fainted!" << endl;
+			b3.getTrainer()->switchPokemon(i);
+			i++;
+		}
+		if(Me->getPokemon()->getCurrHP() <= 0) {
+			cout << "What Pokemon would you like to switch to?" <<endl;
+			if(Me->getSlot(0)->getCurrHP() > 0) {
+				cout <<"1. "<< Me->getSlot(0)->getName() << " ";
+			} else {
+				cout <<"1. "<< Me->getSlot(0)->getName() << " (Fainted) ";
+			}
+                        if(Me->getSlot(1)->getCurrHP() > 0) {
+                                cout <<"2. "<< Me->getSlot(1)->getName() << " ";
+                        } else {
+				cout <<"2. "<< Me->getSlot(1)->getName() << " (Fainted) ";
+			}
+                        if(Me->getSlot(2)->getCurrHP() > 0) {
+                                cout <<"3. "<< Me->getSlot(2)->getName() << endl;
+                        } else {
+				cout <<"3. "<< Me->getSlot(2)->getName() << " (Fainted) " << endl;
+			}
+                        if (Me->getSlot(0)->getCurrHP() < 0 && Me->getSlot(1)->getCurrHP() < 0 && Me->getSlot(2)->getCurrHP() < 0) {
+                                break;
+                        }
+	
+			while(Me->getSlot(j)->getCurrHP() < 0) {
+				cin >> j;
+				j--;
+			
+				if (Me->getSlot(j)->getCurrHP() < 0) {
+					cout << "You cannot choose a fainted Pokemon!" << endl;
+				} else {
+                        		Me->switchPokemon(j);
+				}
+			}       
+                }
+		h = rand() % 4;
+	}
+	cout << endl;
+        cout << "=======================================" << endl;
+	cout << endl;
+	if ("Red" != b3.getWinner()) {
+		cout << "Blaine wins!" << endl;
+		cout << "You lose, game over!" << endl;
+		exit;
+	} else {
+		cout << "Red wins, you earned the Fire Gym Badge!" << endl;
+	}
 }
 

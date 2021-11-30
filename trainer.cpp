@@ -10,6 +10,12 @@ Trainer::Trainer(std::string n, Pokemon* a, Pokemon* b, Pokemon* c):name(n){
 	active = a;
 }
 
+Trainer::~Trainer() {
+
+	for (int i = 0; i < 3; i++) {
+		delete team[i];
+	}
+}
 bool Trainer::allfainted(){
 	for (auto i : team){
 		if (i->getCurrHP() > 0)

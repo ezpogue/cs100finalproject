@@ -15,6 +15,7 @@ protected:
 
 public:
 	Pokemon(std::string name, Pokemon_Type type1, Pokemon_Type type2, Move* move1, Move* move2, Move* move3, Move* move4, int hp, int atk, int def, int spd);
+	~Pokemon();
 	Move* useMove(int choice);
 	Move* getMove(int choice);
 	void catchMove(Move*, Pokemon* user);
@@ -26,5 +27,6 @@ public:
 	int getDEF();
 	int getSPD();
 	int getCurrHP();
+	
 };
 #endif

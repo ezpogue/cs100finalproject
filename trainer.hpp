@@ -14,6 +14,7 @@ protected:
 
 public:
 	Trainer(std::string n, Pokemon* a, Pokemon* b, Pokemon* c);
+	~Trainer();
 	bool allfainted();
     void switchPokemon(int choice);
     Move* useMove(int choice);

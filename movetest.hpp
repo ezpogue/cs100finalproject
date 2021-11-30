@@ -1,3 +1,6 @@
+#ifndef __MOVETEST_HPP__
+#define __MOVETEST_HPP__
+
 #include "gtest/gtest.h"
 #include "move.hpp"
 #include "type.hpp"
@@ -81,21 +84,14 @@ TEST(Debuff_Move, GetDebuffs){
 	ASSERT_EQ(test.getSPDDebuff(), 1);
 }
 
-Attack_Move* move1 = new Attack_Move("move1", a, 100, 0, 20);
-Move_Composite test("test", a, 100, 0, move1);
-Attack_Move* move2 = new Attack_Move("move2", a, 100, 0, 30);
-Buff_Move* move3 = new Buff_Move("move3", a, 100, 0, 3, 2);
-Buff_Move* move4 = new Buff_Move("move4", a, 100, 0, 3, 2);
-Debuff_Move* move5 = new Debuff_Move("move5", a, 100, 0, 2, 3);
-Debuff_Move* move6 = new Debuff_Move("move6", a, 100, 0, 2, 3);
-
+Move_Composite test("test", a, 100, 0, new Attack_Move("move1", a, 100, 0, 20));
 
 TEST(Move_Composite, GetDamage){
-	test.addMove(move2);
-	test.addMove(move3);
-	test.addMove(move4);
-	test.addMove(move5);
-	test.addMove(move6);
+	test.addMove(new Attack_Move("move2", a, 100, 0, 30));
+	test.addMove(new Buff_Move("move3", a, 100, 0, 3, 2));
+	test.addMove(new Buff_Move("move4", a, 100, 0, 3, 2));
+	test.addMove(new Debuff_Move("move5", a, 100, 0, 2, 3));
+	test.addMove(new Debuff_Move("move6", a, 100, 0, 2, 3));
 	ASSERT_EQ(test.getDamage(), 50);
 }
 
@@ -111,4 +107,4 @@ TEST(Move_Composite, GetDebuffs){
 	ASSERT_EQ(test.getSPDDebuff(), 1);
 }
 
-
+#endif

@@ -1,3 +1,6 @@
+#ifndef __POKEMONTEST_HPP__
+#define __POKEMONTEST_HPP__
+
 #include "gtest/gtest.h"
 #include <string>
 
@@ -7,11 +10,8 @@
 
 Pokemon_Type type1("Fire");
 Pokemon_Type type2("Flying");
-Move* pokemove1 = new Attack_Move("attack", new Psychic_Move(), 100, 0, 40);
-Move* pokemove2 = new Buff_Move("buff", new Rock_Move(), 100, 0, 1,3);
-Move* pokemove3 = new Debuff_Move(3,.5);
 
-Pokemon Charizard("Charizard", type1, type2, pokemove1, pokemove2, pokemove3, pokemove3, 100, 80, 120, 40);
+Pokemon Charizard("Charizard", type1, type2, new Attack_Move("attack", new Psychic_Move(), 100, 0, 40), new Buff_Move("buff", new Rock_Move(), 100, 0, 1,3), new Debuff_Move(3,.5), new Debuff_Move(3,.5), 100, 80, 120, 40);
 
 TEST(Pokemon, GetName){
 	ASSERT_EQ(Charizard.getName(), "Charizard");
@@ -61,3 +61,5 @@ TEST(Pokemon, CatchMove){
 TEST(Pokemon, GetCurrHP){
 	ASSERT_EQ(Charizard.getCurrHP(), 20);//40*1*240/120 = 80 ; 100-80=20
 }
+
+#endif

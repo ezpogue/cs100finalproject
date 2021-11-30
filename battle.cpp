@@ -45,7 +45,8 @@ void Battle::turn(int p, int e)
 			break;
 		case 5:
 		case 6:
-			player->switchPokemon(p-3);
+		case 7:
+			player->switchPokemon(p-5);
 		}
 		player->catchMove(enemy->useMove(e), enemy->getPokemon());
 	}
@@ -60,7 +61,8 @@ void Battle::turn(int p, int e)
 			break;
 		case 5:
 		case 6:
-			player->switchPokemon(p-3);
+		case 7:
+			player->switchPokemon(p-5);
 		}
 	}
 }

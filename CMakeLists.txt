@@ -12,6 +12,7 @@ ADD_EXECUTABLE(test
     move.cpp
     pokemon.cpp
     trainer.cpp
+    battle.cpp
 )
 
 ADD_EXECUTABLE(main

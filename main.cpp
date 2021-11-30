@@ -115,7 +115,11 @@ int main(int argc, char* argv[]) {
 	if ("Red" != b1.getWinner()) {
 		cout << "Ben wins!" << endl;
 		cout << "You lose, game over!" << endl;
-		exit;
+		delete Me;
+		delete One;
+		delete Two;	
+		delete Leader;
+		return 0;
 	} else {
 		cout << "Red wins!" << endl;
 	}
@@ -194,7 +198,11 @@ int main(int argc, char* argv[]) {
 	if ("Red" != b2.getWinner()) {
 		cout << "Jerry wins!" << endl;
 		cout << "You lose, game over!" << endl;
-		exit;
+		delete Me;
+		delete One;
+		delete Two;	
+		delete Leader;
+		return 0;
 	} else {
 		cout << "Red wins!" << endl;
 	}
@@ -274,7 +282,11 @@ int main(int argc, char* argv[]) {
 	if ("Red" != b3.getWinner()) {
 		cout << "Blaine wins!" << endl;
 		cout << "You lose, game over!" << endl;
-			exit;
+		delete Me;
+		delete One;
+		delete Two;	
+		delete Leader;
+		return 0;
 		} else {
 		cout << "Red wins, you earned the Fire Gym Badge!" << endl;
 	}
@@ -282,6 +294,7 @@ int main(int argc, char* argv[]) {
 	delete One;
 	delete Two;	
 	delete Leader;
+	return 0;
 }
 
 

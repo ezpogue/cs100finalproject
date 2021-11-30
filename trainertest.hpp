@@ -51,7 +51,7 @@ TEST(Trainer, GetMove){
 }
 
 TEST(Trainer,SwitchPokemon){
-	George.switchPokemon(2);
+	George.switchPokemon(1);
 	ASSERT_EQ(George.getHP(), 102);
 }
 

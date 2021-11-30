@@ -10,6 +10,7 @@ ADD_EXECUTABLE(test
     test.cpp
     type.cpp
     move.cpp
+    pokemon.cpp
 )
 
 TARGET_LINK_LIBRARIES(test gtest)

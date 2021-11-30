@@ -13,6 +13,7 @@ protected:
 	int priority;
 public:
 	Move();
+	~Move();
 	Move(std::string n, Move_Type* t, int acc, int prio);
 	std::string getName();
 	Move_Type* getType();
@@ -32,6 +33,7 @@ protected:
 	std::vector<Move*> movelist;
 public:
 	Move_Composite(std::string n, Move_Type* t, int acc, int prio, Move* m);
+	~Move_Composite();
 	void addMove(Move* m);
 	int getDamage();
 	float getATKDebuff();

@@ -8,6 +8,13 @@ Move::Move():name(""), type(nullptr), accuracy(100), priority(0){}
 
 Move::Move(std::string n, Move_Type* t, int acc, int prio):name(n), type(t), accuracy(acc), priority(prio){}
 
+Move::~Move() {
+	if (type != nullptr) {
+
+		delete type;
+	}
+}
+
 std::string Move::getName(){
 	return name;
 }
@@ -26,7 +33,13 @@ int Move::getPriority(){
 Move_Composite::Move_Composite(std::string n, Move_Type* t, int acc, int prio, Move* m):Move(n,t,acc,prio){
 	movelist.push_back(m);
 }
-
+Move_Composite::~Move_Composite() {
+	for (int i = 0; i < movelist.size(); i++) {
+		if (movelist[i] != nullptr) {
+			delete movelist[i];
+		}
+	}
+}
 void Move_Composite::addMove(Move* m){
 	movelist.push_back(m);
 }

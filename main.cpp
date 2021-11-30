@@ -14,8 +14,7 @@ int main(int argc, char* argv[]) {
 
 		srand (time(NULL));
 		Move_Type* a = new Move_Type("Dark");
-		Attack_Move* Flamethrower = new Attack_Move("Flamethrower", new Fire_Move(), 100, 0, 90);
-                Attack_Move* Hurricane = new Attack_Move("Hurricane", new Flying_Move(), 70, 0, 110); 
+                Attack_Move* Flamethrower = new Attack_Move("Flamethrower", new Fire_Move(), 100, 0, 90);
                 Attack_Move* DragonClaw = new Attack_Move("Dragon Claw", new Dragon_Move(), 100, 0, 80); 
                 Attack_Move* BulletSeed = new Attack_Move("Bullet Seed", new Grass_Move(), 100, 0, 75); 
                 Attack_Move* Earthquake = new Attack_Move("Earthquake", new Ground_Move(), 100, 0, 100); 
@@ -62,7 +61,7 @@ int main(int argc, char* argv[]) {
                 Pokemon* Vulpix2 = new Pokemon("Vulpix", Fire, Fire, Ember, Flamethrower, TailWhip, QuickAttack, 88, 47, 47, 66);
 		Pokemon* Charizard = new Pokemon("Charizard", Fire, Flying, FireBlast, DragonClaw, DragonDance, Hurricane, 121, 82, 77, 95);
 		Pokemon* Venusaur = new Pokemon("Venusaur", Grass, Poison, LeafStorm, BulletSeed, GigaDrain, Earthquake, 117, 77, 83, 75);
-		Pokemon* Blastoise = new Pokemon("Blastoise", Water, Water, HydroPump, Scald, Earthquake, Shell_Smash, 125, 83, 97, 79);
+			Pokemon* Blastoise = new Pokemon("Blastoise", Water, Water, HydroPump, Scald, Earthquake, Shell_Smash, 125, 83, 97, 79);
 
 		Trainer* Me = new Trainer("Red", Charizard, Blastoise, Venusaur);
 		Trainer* One = new Trainer("Ben", Ponyta1, Ponyta2, Growlithe);
@@ -299,9 +298,14 @@ int main(int argc, char* argv[]) {
 	if ("Red" != b3.getWinner()) {
 		cout << "Blaine wins!" << endl;
 		cout << "You lose, game over!" << endl;
-		exit;
-	} else {
+			exit;
+		} else {
 		cout << "Red wins, you earned the Fire Gym Badge!" << endl;
 	}
+	delete Me;
+	delete One;
+	delete Two;	
+	delete Leader;
 }
+
 

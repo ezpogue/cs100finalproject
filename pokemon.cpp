@@ -16,6 +16,14 @@ Pokemon::Pokemon(std::string name, Pokemon_Type type1, Pokemon_Type type2, Move*
 	stats[4] = hp;
 }
 
+Pokemon::~Pokemon() {
+	for (int i = 0; i < 4; i++) {
+		if (move[i] != nullptr) {
+			delete move[i];
+		}
+	}
+}
+
 Move* Pokemon::useMove(int choice){
 	std::cout << name << " used " << move[choice]->getName() << "!" << std::endl;
 	if (move[choice]->getATKBuff() != 1){

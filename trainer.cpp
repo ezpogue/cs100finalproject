@@ -18,8 +18,8 @@ bool Trainer::allfainted(){
 	return true;
 }
 void Trainer::switchPokemon(int choice){
-	std::cout << getName() << "switched to " << team[(choice%3) - 1]->getName() << "!" << std::endl;
-	active = team[(choice%3) - 1];
+	std::cout << getName() << "switched to " << team[(choice)]->getName() << "!" << std::endl;
+	active = team[(choice)];
 }
 
 Move* Trainer::useMove(int choice){
@@ -29,6 +29,11 @@ Move* Trainer::useMove(int choice){
 Move* Trainer::getMove(int choice){
 	return active->getMove(choice);
 }
+
+Pokemon* Trainer::getPokemon() {
+	return active;
+}
+
 	
 void Trainer::catchMove(Move* m, Pokemon* user){
 	 active->catchMove(m,user);

@@ -24,5 +24,6 @@ public:
 	int getATK();
 	int getDEF();
 	int getSPD();
+	Pokemon* getPokemon();
 };
 #endif

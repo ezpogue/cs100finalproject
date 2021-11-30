@@ -13,7 +13,7 @@ protected:
 	int priority;
 public:
 	Move();
-	~Move();
+	virtual ~Move();
 	Move(std::string n, Move_Type* t, int acc, int prio);
 	std::string getName();
 	Move_Type* getType();

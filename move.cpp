@@ -34,10 +34,8 @@ Move_Composite::Move_Composite(std::string n, Move_Type* t, int acc, int prio, M
 	movelist.push_back(m);
 }
 Move_Composite::~Move_Composite() {
-	for (int i = 0; i < movelist.size(); i++) {
-		if (movelist[i] != nullptr) {
-			delete movelist[i];
-		}
+	for (auto i:movelist) {
+		delete i;
 	}
 }
 void Move_Composite::addMove(Move* m){

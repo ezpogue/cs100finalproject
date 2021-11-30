@@ -17,6 +17,7 @@ ADD_EXECUTABLE(main
 	battle.cpp
 	type.cpp
 	pokemon.cpp
+	trainer.cpp
 )
 
 TARGET_LINK_LIBRARIES(test gtest)

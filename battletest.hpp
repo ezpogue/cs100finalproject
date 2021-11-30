@@ -32,16 +32,15 @@ TEST(Battle,BattleCompleteFalse){
 }
 
 TEST(Battle,BattleCompleteTrue){
-	Ponyta1->catchMove(Flamethrower,Ponyta1);
-	Ponyta2->catchMove(Flamethrower,Ponyta1);
-	Growlithe->catchMove(Flamethrower,Ponyta1);
+	Ponyta1->catchMove(Vulpix1->getMove(1),Ponyta1);
+	Ponyta2->catchMove(Vulpix1->getMove(1),Ponyta1);
+	Growlithe->catchMove(Vulpix1->getMove(1),Ponyta1);
 	ASSERT_TRUE(b1.battleComplete());
 }
 
 TEST(Battle,GetWinner){
 	ASSERT_EQ(b1.getWinner(),"Jerry");
+	delete One;
+	delete Two;
 }
-
-delete One;
-delete Two;
 #endif 

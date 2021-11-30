@@ -51,9 +51,9 @@ TEST(Pokemon, UseMove){
 }
 
 TEST(Pokemon, CatchMove){
-	Charizard.catchMove(pokemove1, &Charizard);
-	Charizard.catchMove(pokemove2, &Charizard);
-	Charizard.catchMove(pokemove3, &Charizard);
+	Charizard.catchMove(Charizard.getMove(0), &Charizard);
+	Charizard.catchMove(Charizard.getMove(1), &Charizard);
+	Charizard.catchMove(Charizard.getMove(2), &Charizard);
 	ASSERT_EQ(Charizard.getATK(), 240);
 	ASSERT_EQ(Charizard.getSPD(), 20);
 }

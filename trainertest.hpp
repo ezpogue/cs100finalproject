@@ -56,14 +56,14 @@ TEST(Trainer,SwitchPokemon){
 }
 
 TEST(Trainer, CatchMove){
-	George.catchMove(trainermove1, Ponyta);
+	George.catchMove(Seel->getMove(0), Ponyta);
 	ASSERT_EQ(George.getHP(),36); //50 * 81/62 = 66; 102 - 66 = 36 
 }
 
 TEST(Trainer, AllFaintedTrue){
-	Ponyta->catchMove(trainermove2, Ponyta);
-	Seel->catchMove(trainermove2, Ponyta);
-	Bellsprout->catchMove(trainermove2, Ponyta);
+	Ponyta->catchMove(Seel->getMove(1), Ponyta);
+	Seel->catchMove(Seel->getMove(1), Ponyta);
+	Bellsprout->catchMove(Seel->getMove(1), Ponyta);
 	ASSERT_TRUE(George.allfainted());
 }
 

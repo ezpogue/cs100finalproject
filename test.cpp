@@ -4,6 +4,7 @@
 #include "typetest.hpp"
 #include "movetest.hpp"
 #include "pokemontest.hpp"
+#include "trainertest.hpp"
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);

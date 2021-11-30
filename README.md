@@ -22,13 +22,6 @@ We utilize the composite pattern in our Move class. We have leaf classes for dif
 ### Facade Pattern
 We utilize the [facade pattern](https://en.wikipedia.org/wiki/Facade_pattern) in our Battle class. The game mechanics are fairly complicated, and require calling many methods of different objects to perform things like single moves. The Battle class acts as the facade, and a single method in the Battle class can call all methods needed for an entire turn of a fight.
 
- > ## Final deliverable
- > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
- 
  ## Screenshots
 ![Screenshot 1](FinalProjectScreenshot1.png)
 ![Screenshot 2](FinalProjectScreenshot2.png)

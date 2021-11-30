@@ -35,7 +35,8 @@ void Battle::turn(int p, int e)
 			first = speedCheck();
 	}
 	if (first = true){
-		switch (p){
+		switch (p) {
+
 		case 1:
 		case 2:
 		case 3:
@@ -62,4 +63,9 @@ void Battle::turn(int p, int e)
 			player->switchPokemon(p-3);
 		}
 	}
+}
+
+Trainer* Battle::getTrainer() {
+
+	return enemy;
 }

@@ -18,7 +18,7 @@ public:
 	~Pokemon();
 	Move* useMove(int choice);
 	Move* getMove(int choice);
-	void catchMove(Move*, Pokemon* user);
+	void catchMove(Move* a, Pokemon* user);
 	std::string getName();
 	Pokemon_Type getType1();
 	Pokemon_Type getType2();

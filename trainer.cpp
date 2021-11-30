@@ -30,8 +30,8 @@ Move* Trainer::getMove(int choice){
 	return active->getMove(choice);
 }
 	
-void Trainer::catchMove(Move* m){
-	 active->catchMove(m);
+void Trainer::catchMove(Move* m, Pokemon* user){
+	 active->catchMove(m,user);
 }
 
 std::string Trainer::getName(){

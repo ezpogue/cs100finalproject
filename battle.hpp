@@ -16,7 +16,6 @@ class Battle
 		bool speedCheck();
 		std::string getWinner();
 		void turn(int p, int e);
-		Trainer* getTrainer();
     };
 
 #endif

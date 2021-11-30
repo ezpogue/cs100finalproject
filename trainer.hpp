@@ -25,5 +25,6 @@ public:
 	int getDEF();
 	int getSPD();
 	Pokemon* getPokemon();
+	Pokemon* getSlot(int s);
 };
 #endif

@@ -52,7 +52,7 @@ void Pokemon::catchMove(Move* a, Pokemon* user){
 	}
 	if (a->getDamage() != 0){
 		stats[4] -= a->getDamage()*a->getType()->effectiveness(type[0], type[1])*user->getATK()/stats[2];
-		std::cout << name << " took " << int(((a->getDamage()*(a->getType())->effectiveness(type[0], type[1]))/stats[2])+1) << " damage!" << std::endl;
+		std::cout << name << " took " << int(a->getDamage()*a->getType()->effectiveness(type[0], type[1])*user->getATK()/stats[2])+1 << " damage!" << std::endl;
 	}	
 }
 

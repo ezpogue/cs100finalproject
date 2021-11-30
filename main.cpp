@@ -15,6 +15,7 @@ int main(int argc, char* argv[]) {
 		srand (time(NULL));
 		Move_Type* a = new Move_Type("Dark");
                 Attack_Move* Flamethrower = new Attack_Move("Flamethrower", new Fire_Move(), 100, 0, 90);
+		Attack_Move* Hurricane = new Attack_Move("Hurricane", new Flying_Move(), 70, 0, 110);
                 Attack_Move* DragonClaw = new Attack_Move("Dragon Claw", new Dragon_Move(), 100, 0, 80); 
                 Attack_Move* BulletSeed = new Attack_Move("Bullet Seed", new Grass_Move(), 100, 0, 75); 
                 Attack_Move* Earthquake = new Attack_Move("Earthquake", new Ground_Move(), 100, 0, 100); 

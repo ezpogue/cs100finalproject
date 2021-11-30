@@ -9,6 +9,8 @@ ADD_COMPILE_OPTIONS(-g -O0 -fno-inline)
 ADD_EXECUTABLE(test
     test.cpp
     type.cpp
+    move.cpp
+    pokemon.cpp
 )
 
 ADD_EXECUTABLE(main

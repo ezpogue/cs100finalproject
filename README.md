@@ -14,6 +14,18 @@ Features of the game will include core Pokemon battle features, such as choosing
 
 ## Class Diagram
 Our class diagrams can be viewed [here.](https://lucid.app/lucidchart/bead12b5-0e52-4913-a2b0-adf8b4624c81/edit?viewport_loc=13%2C-36%2C2219%2C989%2C0_0&invitationId=inv_2795bc8a-8a70-4143-a02d-184a171e0b08)
+
+The game is largely built around the Trainer, Pokemon, Move, and Type classes which aggregate each other in a hierarchical fashion. 
+
+Trainer contains the data for either a player or an NPC. Each Trainer is given a name as well as 3 Pokemon, one of which is the "active" Pokemon for that trainer. Methods for the Trainer class include various interactions with the active Pokemon, as well as a means to switch active Pokemon. 
+
+Each Pokemon aggregates 4 Moves as well as having 5 stats, a name, and up to 2 Types associated with it. Each of these member variables can be accessed directly with getter methods, as well as indirect changes of stats using the catchMove method.
+
+The Move class is where we implemented our composite pattern. Moves are split up into 4 types: attacks, debuffs, buffs, and composites. While the first 3 can only do one thing at a time, the composite can aggregate other moves, allowing a single move to do multiple things. Each move also has a name and a Type. To access the stat changes and damage for the moves, every Move subclass has getters for damage, buffs, and debuffs.
+
+At the bottom of the hierarchy are Types. Every Type has a name, and Move_Types (The Types used by Moves) also have 3 sets that correspond to super effective types, not very effective types, and immunities. The single method for the classes returns a multiplier depending on the two Types passed to it.
+
+The last class is the Battle class, which acts as a facade for the way our program operates. The Battle class allows us to contain most of the logic for the gameplay loop away from the other classes, but also keeping it out of our main as well. The methods for this class can run an entire turn of a battle, check if a battle is complete, and return the winner of the battle.
  
 ## Design Patterns
 ### Composite Pattern

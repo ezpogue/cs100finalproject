@@ -1,3 +1,6 @@
+#ifndef __TYPETEST_HPP__
+#define __TYPETEST_HPP__
+
 #include "gtest/gtest.h"
 #include "type.hpp"
 
@@ -48,3 +51,4 @@ TEST(Move_Type, TwoSameType){
 	ASSERT_EQ(test.effectiveness(a,b), 2);
 }
 
+#endif

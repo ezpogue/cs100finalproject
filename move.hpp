@@ -13,18 +13,19 @@ protected:
 	int priority;
 public:
 	Move();
+	virtual ~Move();
 	Move(std::string n, Move_Type* t, int acc, int prio);
 	std::string getName();
 	Move_Type* getType();
 	int getAccuracy();
 	int getPriority();
-	virtual int getDamage();
-	virtual float getATKDebuff();
-	virtual float getDEFDebuff();
-	virtual float getSPDDebuff();
-	virtual float getATKBuff();
-	virtual float getDEFBuff();
-	virtual float getSPDBuff();
+	virtual int getDamage() = 0;
+	virtual float getATKDebuff() = 0;
+	virtual float getDEFDebuff() = 0;
+	virtual float getSPDDebuff() = 0;
+	virtual float getATKBuff() = 0;
+	virtual float getDEFBuff() = 0;
+	virtual float getSPDBuff() = 0;
 };
 
 class Move_Composite : public Move {
@@ -32,6 +33,7 @@ protected:
 	std::vector<Move*> movelist;
 public:
 	Move_Composite(std::string n, Move_Type* t, int acc, int prio, Move* m);
+	~Move_Composite();
 	void addMove(Move* m);
 	int getDamage();
 	float getATKDebuff();

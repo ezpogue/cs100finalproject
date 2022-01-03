@@ -29,37 +29,45 @@ void Battle::turn(int p, int e)
 {
 	bool first = true;
 	if (p <= 4){
-		if (player->getMove(p)->getPriority() < enemy->getMove(e)->getPriority())
+		if (player->getMove(p-1)->getPriority() < enemy->getMove(e)->getPriority())
 			first = false;
-		else if (player->getMove(p)->getPriority() == enemy->getMove(e)->getPriority())
+		else if (player->getMove(p-1)->getPriority() == enemy->getMove(e)->getPriority())
 			first = speedCheck();
 	}
 	if (first = true){
-		switch (p){
+		switch (p) {
+
 		case 1:
 		case 2:
 		case 3:
 		case 4:
-			enemy->catchMove(player->useMove(p));
+			enemy->catchMove(player->useMove(p-1), player->getPokemon()); //user in catchMove couldbe wrong 
 			break;
 		case 5:
 		case 6:
-			player->switchPokemon(p-3);
+		case 7:
+			player->switchPokemon(p-5);
 		}
-		player->catchMove(enemy->useMove(e));
+		player->catchMove(enemy->useMove(e), enemy->getPokemon());
 	}
 	else{
-		player->catchMove(enemy->useMove(e));
+		player->catchMove(enemy->useMove(e), enemy->getPokemon());
 		switch (p){
 		case 1:
 		case 2:
 		case 3:
 		case 4:
-			enemy->catchMove(player->useMove(p));
+			enemy->catchMove(player->useMove(p-1), player->getPokemon());
 			break;
 		case 5:
 		case 6:
-			player->switchPokemon(p-3);
+		case 7:
+			player->switchPokemon(p-5);
 		}
 	}
+}
+
+Trainer* Battle::getTrainer() {
+
+	return enemy;
 }

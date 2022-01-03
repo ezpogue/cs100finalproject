@@ -8,6 +8,13 @@ Move::Move():name(""), type(nullptr), accuracy(100), priority(0){}
 
 Move::Move(std::string n, Move_Type* t, int acc, int prio):name(n), type(t), accuracy(acc), priority(prio){}
 
+Move::~Move() {
+	if (type != nullptr) {
+
+		delete type;
+	}
+}
+
 std::string Move::getName(){
 	return name;
 }
@@ -26,55 +33,59 @@ int Move::getPriority(){
 Move_Composite::Move_Composite(std::string n, Move_Type* t, int acc, int prio, Move* m):Move(n,t,acc,prio){
 	movelist.push_back(m);
 }
-
+Move_Composite::~Move_Composite() {
+	for (auto i:movelist) {
+		delete i;
+	}
+}
 void Move_Composite::addMove(Move* m){
 	movelist.push_back(m);
 }
 
 int Move_Composite::getDamage(){
-	int damage;
+	int damage = 0;
 	for (auto i: movelist)
 		damage += i->getDamage();
 	return damage;
 }
 
 float Move_Composite::getATKDebuff(){
-	float debuff;
+	float debuff = 1;
 	for (auto i: movelist)
 		debuff *= i->getATKDebuff();
 	return debuff;
 }
 
 float Move_Composite::getDEFDebuff(){
-	float debuff;
+	float debuff = 1;
 	for (auto i: movelist)
 		debuff *= i->getDEFDebuff();
 	return debuff;
 }
 
 float Move_Composite::getSPDDebuff(){
-	float debuff;
+	float debuff = 1;
 	for (auto i: movelist)
 		debuff *= i->getSPDDebuff();
 	return debuff;
 } 
 
 float Move_Composite::getATKBuff(){
-	float buff;
+	float buff = 1;
 	for (auto i: movelist)
 		buff *= i->getATKBuff();
 	return buff;
 } 
 
 float Move_Composite::getDEFBuff(){
-	float buff;
+	float buff = 1;
 	for (auto i: movelist)
 		buff *= i->getDEFBuff();
 	return buff;
 } 
 
 float Move_Composite::getSPDBuff(){
-	float buff;
+	float buff = 1;
 	for (auto i: movelist)
 		buff *= i->getSPDBuff();
 	return buff;

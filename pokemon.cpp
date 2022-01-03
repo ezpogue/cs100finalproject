@@ -16,6 +16,14 @@ Pokemon::Pokemon(std::string name, Pokemon_Type type1, Pokemon_Type type2, Move*
 	stats[4] = hp;
 }
 
+Pokemon::~Pokemon() {
+	for (int i = 0; i < 4; i++) {
+		if (move[i] != nullptr) {
+			delete move[i];
+		}
+	}
+}
+
 Move* Pokemon::useMove(int choice){
 	std::cout << name << " used " << move[choice]->getName() << "!" << std::endl;
 	if (move[choice]->getATKBuff() != 1){
@@ -37,7 +45,7 @@ Move* Pokemon::getMove(int choice){
 	return move[choice];
 }
 
-void Pokemon::catchMove(Move* a){
+void Pokemon::catchMove(Move* a, Pokemon* user){
 	if (a->getATKDebuff() != 1){
 		stats[1] *= a->getATKDebuff();
 		std::cout << name << "'s attack was decreased!" << std::endl;
@@ -51,8 +59,8 @@ void Pokemon::catchMove(Move* a){
 		std::cout << name << "'s speed was decreased!" << std::endl;
 	}
 	if (a->getDamage() != 0){
-		stats[5] -= (a->getDamage()*(a->getType())->effectiveness(type[0], type[1]))/stats[2];
-		std::cout << name << " took " << (a->getDamage()*(a->getType())->effectiveness(type[0], type[1]))/stats[2] << " damage!" << std::endl;
+		stats[4] -= a->getDamage()*a->getType()->effectiveness(type[0], type[1])*user->getATK()/stats[2];
+		std::cout << name << " took " << int(a->getDamage()*a->getType()->effectiveness(type[0], type[1])*user->getATK()/stats[2])+1 << " damage!" << std::endl;
 	}	
 }
 

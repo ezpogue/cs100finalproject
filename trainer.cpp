@@ -10,6 +10,12 @@ Trainer::Trainer(std::string n, Pokemon* a, Pokemon* b, Pokemon* c):name(n){
 	active = a;
 }
 
+Trainer::~Trainer() {
+
+	for (int i = 0; i < 3; i++) {
+		delete team[i];
+	}
+}
 bool Trainer::allfainted(){
 	for (auto i : team){
 		if (i->getCurrHP() > 0)
@@ -18,8 +24,8 @@ bool Trainer::allfainted(){
 	return true;
 }
 void Trainer::switchPokemon(int choice){
-	std::cout << getName() << "switched to " << team[(choice%3) - 1]->getName() << "!" << std::endl;
-	active = team[(choice%3) - 1];
+	std::cout << getName() << " switched to " << team[(choice)]->getName() << "!" << std::endl;
+	active = team[(choice)];
 }
 
 Move* Trainer::useMove(int choice){
@@ -29,9 +35,16 @@ Move* Trainer::useMove(int choice){
 Move* Trainer::getMove(int choice){
 	return active->getMove(choice);
 }
-	
-void Trainer::catchMove(Move* m){
-	 active->catchMove(m);
+
+Pokemon* Trainer::getPokemon() {
+	return active;
+}
+
+Pokemon* Trainer::getSlot(int s) {
+	return team[s];
+}	
+void Trainer::catchMove(Move* m, Pokemon* user){
+	 active->catchMove(m,user);
 }
 
 std::string Trainer::getName(){
